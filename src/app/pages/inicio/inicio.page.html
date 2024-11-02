@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+    <h1> {{selectedComponent}} </h1>
+
+    <app-codigoqr *ngIf="selectedComponent === 'codigoqr'"></app-codigoqr>
+    <app-miclase *ngIf="selectedComponent === 'miclase'"></app-miclase>
+    <app-foro *ngIf="selectedComponent === 'foro'"></app-foro>
+    <app-misdatos *ngIf="selectedComponent === 'misdatos'"></app-misdatos>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+
+        <ion-segment value="codigoqr" [(ngModel)]="selectedComponent" (ionChange)="segmentChange($event)">
+
+            <ion-segment-button value="codigoqr">
+                <ion-icon name="home-outline"></ion-icon>
+                Inicio
+            </ion-segment-button>
+
+            <ion-segment-button value="miclase">
+                <ion-icon name="school-outline"></ion-icon>
+                Mi Clase
+            </ion-segment-button>
+
+            <ion-segment-button value="foro">
+                <ion-icon name="pencil-outline"></ion-icon>
+                Foro
+            </ion-segment-button>
+
+            <ion-segment-button value="misdatos">
+                <ion-icon name="grid-outline"></ion-icon>
+                Mis Datos
+            </ion-segment-button>
+
+
+        </ion-segment>
+    </ion-toolbar>
+</ion-footer>

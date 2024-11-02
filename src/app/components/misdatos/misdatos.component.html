@@ -1,0 +1,111 @@
+<ion-content #page [fullscreen]="true" class="ion-padding-horizontal page">
+    
+  <ion-card class="content ion-text-center">
+
+    <!-- <ion-title class="ion-padding-top">
+      <ion-label class="ion-text-center">
+        <h1> ¡Bienvenido(a) {{ usuario.nombre }} {{ usuario.apellido }}!</h1>
+        <br>
+        <h4> Mis Datos personales</h4>
+      </ion-label>
+    </ion-title> -->
+
+    <ion-item #itemCorreo>
+      <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating" disabled="true"></ion-input>
+      <!-- <ion-icon name="mail_outline" slot="start"></ion-icon> -->
+    </ion-item>
+
+    <ion-item #itemCuenta>
+      <ion-input type="text" [(ngModel)]="usuario.cuenta" label="Cuenta" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item #itemNombre>
+      <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item #itemApellido>
+      <ion-input type="text" [(ngModel)]="usuario.apellido" label="Apellido" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item #itemPregunta>
+      <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="Pregunta secreta" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item #itemRespuesta>
+      <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item #itemEducacion>
+      <ion-label position="floating"> Educación </ion-label>    
+
+      <ion-select [(ngModel)]="usuario.nivelEducacional!.id">
+        <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
+          {{nivel.nombre}}
+        </ion-select-option>
+      </ion-select>
+
+    </ion-item>
+
+    <ion-item #itemFechaNacimiento>
+      <table>
+        <tr>
+          <td class="font-size-12">
+            Nacimiento
+          </td>
+          <td class="cell-align-right">
+            <!-- <input 
+              matInput 
+              [matDatepicker]="fechaNacimiento" 
+              [(ngModel)]="usuario.fechaNacimiento" 
+              placeholder="dd/mm/yyyy" 
+              class="date-width"> -->
+
+          <ion-title> {{ 'ThemePage.Calendar.Title' | translate }} </ion-title>
+          <br>
+          <ion-datetime 
+              size="small"
+              class="ion-text-right enmarcar" 
+              presentation="date" 
+              [preferWheel]="true"
+              displayFormat="DD/MM/YYYY"
+              placeholder="dd/mm/yyyy">
+          </ion-datetime>
+
+          </td>
+          <td class="cell-width-0">
+            <!-- <mat-datepicker-toggle matSuffix [for]="fechaNacimiento"></mat-datepicker-toggle>
+            <mat-datepicker #fechaNacimiento></mat-datepicker> -->
+          </td>
+        </tr>
+      </table>
+    </ion-item>
+
+    <ion-item #itemContraseña>
+      <ion-input [(ngModel)]="usuario.password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item #itemRepetirContraseña>
+      <ion-input [(ngModel)]="usuario.password" type="password" label="Repetir contraseña" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+
+    <div class="ion-text-center">
+      <ion-label>
+
+        <ion-button (click)="this.actualizarPerfil() " color="success">Guardar cambios</ion-button>
+        <br>
+        
+
+      </ion-label>
+  </div>
+
+  
+<div>
+  <ion-button fill="clear" size="large" icon-only (click)="logout()">
+    <ion-icon name="log-out-outline" color="light"></ion-icon>
+  </ion-button>
+</div>
+
+</ion-card>
+
+</ion-content>

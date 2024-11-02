@@ -1,0 +1,106 @@
+import { AuthService } from 'src/app/services/auth.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonInput, IonButton, IonIcon, IonCard, IonLoading, IonCardContent, IonCardSubtitle, IonItem, IonCol,
+  IonGrid, IonRow, IonLabel, IonItemDivider } from '@ionic/angular/standalone';
+import { Usuario } from 'src/app/model/usuario';
+import jsQR, { QRCode } from 'jsqr';
+import { Asistencia } from 'src/app/interfaces/asistencia';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-codigoqr',
+  templateUrl: './codigoqr.component.html',
+  styleUrls: ['./codigoqr.component.scss'],
+  standalone: true,
+  imports: [IonContent, IonLabel, IonTitle, CommonModule]
+})
+export class CodigoqrComponent  implements OnInit {
+
+  //AQUÍ HAY QUE PEGAR TODO LO DE LA PÁGINA INICIO.TS DEL CONTROL 1 (ACERCA DEL QR) A PARTIR DEL EXPORT CLASS
+  //EL ACTIVATES ROUTE Y EL PRIVATE ROUTER SE VUELAN
+  //RECIBIR USUARIO NO VA Y SE REEMPLAZA POR LA SUBSCRIPCIÓN AL USUARIO (Ojalá alguien entienda esto en un futuro)
+  //PARA ESO LE CHANTAMOS EL AUTHSERVICE AL CONSTRUCTOR Y DENTRO DE ESTE SE LLAMA A 
+  //THIS.AUTHSERVICE.USUARIOAUTENTICADO.SUSBSCRIBE((USUARIO)) => {
+    //IF (USUARIO) {
+      //THIS.USUARIO = USUARIO;
+    //}
+  //}
+  //AQUÍ YA ME ABURRÍ DE ESCRIBIR PORQUE NO ENTENDÍ NADA, PERO REZA PORQUE TE RESULTE, TKM, MUCHO ÉXITO XOXO
+  //DE: DIEGO
+  //PARA: EL CTMRE QUE SE LE OCURRA HACER ESTA WEA DEL QR ASLDKJGHSADLKGJSHADGLKJDSAHLGK
+  @ViewChild('titulo',{ read: ElementRef }) itemTitulo!: ElementRef
+  @ViewChild('video') private video!: ElementRef;
+  @ViewChild('canvas') private canvas!: ElementRef;
+
+  public usuario: Usuario = new Usuario();
+  public asistencia: Asistencia | undefined = undefined;
+  public escaneando = false;
+  public datosQR: string = '';
+
+
+  constructor(private authService: AuthService) {
+    this.authService.usuarioAutenticado.subscribe((usuarioAutenticado)=>{
+      if(usuarioAutenticado){
+        this.usuario=usuarioAutenticado;
+      }
+    });
+
+  }
+  ngOnInit() {
+    if (!this.usuario.asistencia) {
+      this.comenzarEscaneoQR();
+    } else {
+      console.log("Asistencia ya almacenada:", this.usuario.asistencia);
+    }
+  }
+
+  public async comenzarEscaneoQR() {
+    const mediaProvider: MediaProvider = await navigator.mediaDevices.getUserMedia({
+      video: {facingMode: 'environment'}
+    });
+    this.video.nativeElement.srcObject = mediaProvider;
+    this.video.nativeElement.setAttribute('playsinline', 'true');
+    this.video.nativeElement.play();
+    this.escaneando = true;
+    requestAnimationFrame(this.verificarVideo.bind(this));
+  }
+
+  async verificarVideo() {
+    if (this.video.nativeElement.readyState === this.video.nativeElement.HAVE_ENOUGH_DATA) {
+      if (this.obtenerDatosQR() || !this.escaneando) return;
+      requestAnimationFrame(this.verificarVideo.bind(this));
+    } else {
+      requestAnimationFrame(this.verificarVideo.bind(this));
+    }
+  }
+
+  public obtenerDatosQR(): boolean {
+    const w: number = this.video.nativeElement.videoWidth;
+    const h: number = this.video.nativeElement.videoHeight;
+    this.canvas.nativeElement.width = w;
+    this.canvas.nativeElement.height = h;
+    const context = this.canvas.nativeElement.getContext('2d', { willReadFrequently: true });
+    context.drawImage(this.video.nativeElement, 0, 0, w, h);
+    const img = context.getImageData(0, 0, w, h);
+    let qrCode = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
+    
+    if (qrCode && qrCode.data !== '') {
+      console.log("QR Data:", qrCode.data);
+      
+      this.escaneando = false;
+      this.usuario.asistencia = JSON.parse(qrCode.data);
+      this.authService.guardarUsuarioAutenticado(this.usuario);  
+      console.log("Asistencia:", this.usuario.asistencia);  
+      return true;
+    }
+    
+    return false;
+  }
+  
+  public detenerEscaneoQR(): void {
+    this.escaneando = false;
+  }
+  
+
+}
+

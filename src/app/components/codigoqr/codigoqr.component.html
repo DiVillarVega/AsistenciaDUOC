@@ -1,0 +1,24 @@
+<ion-content #page [fullscreen]="true" class="ion-padding-horizontal page">
+    
+  <div class="titulo-container ion-padding-top">
+    <ion-title>
+      <ion-label class="ion-text-center">
+        <h1 class="titulo-bienvenida">
+          ¡Bienvenido(a) 
+          {{ usuario.nombre }} 
+          {{ usuario.apellido }}!
+        </h1>
+        <h4 *ngIf="!usuario.asistencia"> Registra tu asistencia a clases </h4>
+        <h4 *ngIf="usuario.asistencia"> Ya estás presente en tu clase </h4>
+      </ion-label>
+    </ion-title>
+  </div>
+
+  <div class="centrar video-container">
+    <div class="enmarcar">
+      <video #video [hidden]="!escaneando" style="width: 100%"></video>
+      <canvas #canvas hidden></canvas>
+    </div>
+  </div>
+  
+</ion-content>

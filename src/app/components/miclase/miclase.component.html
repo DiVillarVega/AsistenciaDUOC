@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="usuario?.asistencia; else noUsuarioTemplate">
+    <ion-card-header>
+      <h1 class="titulo_datos">DATOS DE LA ASIGNATURA</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="container">
+        <div class="left">
+          <p><strong>Sede:</strong></p>
+          <p><strong>Sigla:</strong></p>
+          <p><strong>Sección:</strong></p>
+          <p><strong>Nombre asignatura:</strong></p>
+          <p><strong>Nombre profesor:</strong></p>
+          <p><strong>Día:</strong></p>
+          <p><strong>Bloque Inicio:</strong></p>
+          <p><strong>Bloque Término:</strong></p>
+          <p><strong>Hora Inicio:</strong></p>
+          <p><strong>Hora Fin:</strong></p>
+        </div>
+        <div class="right">
+          <p>{{ usuario.asistencia!.sede }}</p>
+          <p>{{ usuario.asistencia!.idAsignatura }}</p>
+          <p>{{ usuario.asistencia!.seccion }}</p>
+          <p>{{ usuario.asistencia!.nombreAsignatura }}</p>
+          <p>{{ usuario.asistencia!.nombreProfesor }}</p>
+          <p>{{ usuario.asistencia!.dia }}</p>
+          <p>{{ usuario.asistencia!.bloqueInicio }}</p>
+          <p>{{ usuario.asistencia!.bloqueTermino }}</p>
+          <p>{{ usuario.asistencia!.horaInicio }}</p>
+          <p>{{ usuario.asistencia!.horaFin }}</p>
+        </div>
+      </div>
+      
+      
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ng-template #noUsuarioTemplate>
+  <!-- Contenido que deseas mostrar cuando `usuario` no tiene `asistencia` -->
+  <p>No hay datos disponibles para el usuario.</p>
+</ng-template>
