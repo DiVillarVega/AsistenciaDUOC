@@ -1,3 +1,5 @@
+import { bootstrapApplication } from '@angular/platform-browser';
+import { TestBed } from '@angular/core/testing';
 import { mostrarEjemplosDeMensajes, showAlertDUOC, showToast } from './../../tools/message-routines';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
@@ -27,19 +29,28 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 export class MisdatosComponent {
 
   usuario = new Usuario();
-  repeticionPassword= '';
+  repeticionPassword= '';;
   public listaNivelesEducacionales = NivelEducacional.getNivelesEducacionales();
 
   constructor(private authService: AuthService, private bd: DataBaseService) { 
     addIcons({ logOutOutline });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.authService.usuarioAutenticado.subscribe((usuario)=>{
       this.usuario = usuario? usuario: new Usuario();
       this.repeticionPassword = usuario? usuario.password: '';
+   
+      if (usuario) {
+        this.usuario = usuario;
+        // Solo asegurándonos de que el id de nivel educacional esté bien asignado
+        this.usuario.nivelEducacional = this.listaNivelesEducacionales.find(nivel => nivel.id === usuario.nivelEducacional.id) || new NivelEducacional();
+      } 
+      
   });
   }
+
+  
 
   validarCampo(nombreCampo: string, valor: string) {
     if(valor.trim() === ''){
@@ -64,10 +75,9 @@ export class MisdatosComponent {
     this.authService.guardarUsuarioAutenticado(this.usuario);
     showToast('Sus datos fueron actualizados correctamente.');
   }
-
-
   logout() {
     this.authService.logout();
   }
+
 
 }

@@ -5,40 +5,53 @@
     </ion-card-header>
 
     <ion-card-content>
-      <div class="container">
-        <div class="left">
-          <p><strong>Sede:</strong></p>
-          <p><strong>Sigla:</strong></p>
-          <p><strong>Sección:</strong></p>
-          <p><strong>Nombre asignatura:</strong></p>
-          <p><strong>Nombre profesor:</strong></p>
-          <p><strong>Día:</strong></p>
-          <p><strong>Bloque Inicio:</strong></p>
-          <p><strong>Bloque Término:</strong></p>
-          <p><strong>Hora Inicio:</strong></p>
-          <p><strong>Hora Fin:</strong></p>
-        </div>
-        <div class="right">
-          <p>{{ usuario.asistencia!.sede }}</p>
-          <p>{{ usuario.asistencia!.idAsignatura }}</p>
-          <p>{{ usuario.asistencia!.seccion }}</p>
-          <p>{{ usuario.asistencia!.nombreAsignatura }}</p>
-          <p>{{ usuario.asistencia!.nombreProfesor }}</p>
-          <p>{{ usuario.asistencia!.dia }}</p>
-          <p>{{ usuario.asistencia!.bloqueInicio }}</p>
-          <p>{{ usuario.asistencia!.bloqueTermino }}</p>
-          <p>{{ usuario.asistencia!.horaInicio }}</p>
-          <p>{{ usuario.asistencia!.horaFin }}</p>
-        </div>
-      </div>
-      
-      
-      
+      <table class="asignatura-table">
+        <tr>
+          <td><strong>Sede:</strong></td>
+          <td>{{ usuario.asistencia!.sede }}</td>
+        </tr>
+        <tr>
+          <td><strong>Sigla:</strong></td>
+          <td>{{ usuario.asistencia!.idAsignatura }}</td>
+        </tr>
+        <tr>
+          <td><strong>Sección:</strong></td>
+          <td>{{ usuario.asistencia!.seccion }}</td>
+        </tr>
+        <tr>
+          <td><strong>Nombre asignatura:</strong></td>
+          <td>{{ usuario.asistencia!.nombreAsignatura }}</td>
+        </tr>
+        <tr>
+          <td><strong>Nombre profesor:</strong></td>
+          <td>{{ usuario.asistencia!.nombreProfesor }}</td>
+        </tr>
+        <tr>
+          <td><strong>Día:</strong></td>
+          <td>{{ usuario.asistencia!.dia }}</td>
+        </tr>
+        <tr>
+          <td><strong>Bloque Inicio:</strong></td>
+          <td>{{ usuario.asistencia!.bloqueInicio }}</td>
+        </tr>
+        <tr>
+          <td><strong>Bloque Término:</strong></td>
+          <td>{{ usuario.asistencia!.bloqueTermino }}</td>
+        </tr>
+        <tr>
+          <td><strong>Hora Inicio:</strong></td>
+          <td>{{ usuario.asistencia!.horaInicio }}</td>
+        </tr>
+        <tr>
+          <td><strong>Hora Fin:</strong></td>
+          <td>{{ usuario.asistencia!.horaFin }}</td>
+        </tr>
+      </table>
     </ion-card-content>
   </ion-card>
+  <br><br><br><br>
 </ion-content>
 
 <ng-template #noUsuarioTemplate>
-  <!-- Contenido que deseas mostrar cuando `usuario` no tiene `asistencia` -->
   <p>No hay datos disponibles para el usuario.</p>
 </ng-template>
