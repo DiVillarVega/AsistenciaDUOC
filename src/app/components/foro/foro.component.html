@@ -1,5 +1,5 @@
-<ion-content [fullscreen]="true">
-  <a #topOfPage href="#topOfPage"></a>
+
+<ion-content #page [fullscreen]="true" class="ion-padding-horizontal page">
   <ion-card>
 
     <ion-card-header>
@@ -21,34 +21,33 @@
 
   </ion-card>
 
-<ion-card class="sin-bordes">
-  <ion-card-title class="con-padding-top">Publicaciones recientes</ion-card-title>
-</ion-card>
+  <ion-card class="sin-bordes">
+    <ion-card-title class="con-padding-top">Publicaciones recientes</ion-card-title>
+  </ion-card>
 
-<ion-card *ngFor="let pub of publicaciones">
+  <ion-card *ngFor="let pub of publicaciones">
 
-<ion-card-header>
-  <h4>
-    #{{ pub.id }} - {{ pub.titulo }} <br>
-    Autor: {{ pub.nombre }} {{ pub.apellido }}
-  </h4>
-</ion-card-header>
+  <ion-card-header>
+    <h4>
+      #{{ pub.id }} - {{ pub.titulo }} <br>
+      Autor: {{ pub.nombre }} {{ pub.apellido }}
+    </h4>
+  </ion-card-header>
 
-<ion-card-content>
-  {{ pub.contenido }}
-</ion-card-content>
+  <ion-card-content>
+    {{ pub.contenido }}
+  </ion-card-content>
 
-<div class="alinear-derecha">
-  
-  <ion-button (click)="editarPublicacion(pub)">
-    <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
-  </ion-button>
+  <div class="alinear-derecha">
 
-  <ion-button (click)="eliminarPublicacion(pub)">
-    <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-  </ion-button>
-</div>
+    <ion-button (click)="editarPublicacion(pub)">
+      <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+    </ion-button>
 
-</ion-card>
+    <ion-button (click)="eliminarPublicacion(pub)">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
+  </div>
 
+  </ion-card>
 </ion-content>

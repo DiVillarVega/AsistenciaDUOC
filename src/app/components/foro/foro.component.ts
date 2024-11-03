@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Publicacion } from 'src/app/model/publicacion';
 import { Usuario } from 'src/app/model/usuario';
 import { APIClientService } from 'src/app/services/apiclient.service';
@@ -7,17 +7,16 @@ import { AuthService } from 'src/app/services/auth.service';
 import { IonButton, IonContent, IonCard, IonCardHeader, IonCardTitle, IonItem, IonInput, IonTextarea, IonCardContent, IonIcon } from "@ionic/angular/standalone";
 import { showAlert, showAlertDUOC, showToast } from 'src/app/tools/message-routines';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-foro',
   templateUrl: './foro.component.html',
   styleUrls: ['./foro.component.scss'],
   standalone: true,
-  imports: [IonIcon, IonCardContent, IonTextarea, IonInput, IonItem, IonCardTitle, IonCardHeader, IonCard, IonContent, IonButton, IonicModule, CommonModule, FormsModule]
+  imports: [IonIcon, IonCardContent, IonTextarea, IonInput, IonItem, IonCardTitle, IonCardHeader, IonCard, IonContent, IonButton, FormsModule]
 })
 export class ForoComponent  implements OnInit {
-
 
   @ViewChild("topOfPage") topOfPage!: ElementRef;
 

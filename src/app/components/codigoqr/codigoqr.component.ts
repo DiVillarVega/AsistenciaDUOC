@@ -15,19 +15,6 @@ import { CommonModule } from '@angular/common';
   imports: [IonContent, IonLabel, IonTitle, CommonModule]
 })
 export class CodigoqrComponent  implements OnInit {
-
-  //AQUÍ HAY QUE PEGAR TODO LO DE LA PÁGINA INICIO.TS DEL CONTROL 1 (ACERCA DEL QR) A PARTIR DEL EXPORT CLASS
-  //EL ACTIVATES ROUTE Y EL PRIVATE ROUTER SE VUELAN
-  //RECIBIR USUARIO NO VA Y SE REEMPLAZA POR LA SUBSCRIPCIÓN AL USUARIO (Ojalá alguien entienda esto en un futuro)
-  //PARA ESO LE CHANTAMOS EL AUTHSERVICE AL CONSTRUCTOR Y DENTRO DE ESTE SE LLAMA A 
-  //THIS.AUTHSERVICE.USUARIOAUTENTICADO.SUSBSCRIBE((USUARIO)) => {
-    //IF (USUARIO) {
-      //THIS.USUARIO = USUARIO;
-    //}
-  //}
-  //AQUÍ YA ME ABURRÍ DE ESCRIBIR PORQUE NO ENTENDÍ NADA, PERO REZA PORQUE TE RESULTE, TKM, MUCHO ÉXITO XOXO
-  //DE: DIEGO
-  //PARA: EL CTMRE QUE SE LE OCURRA HACER ESTA WEA DEL QR ASLDKJGHSADLKGJSHADGLKJDSAHLGK
   @ViewChild('titulo',{ read: ElementRef }) itemTitulo!: ElementRef
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
