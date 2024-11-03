@@ -1,14 +1,20 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Publicacion } from 'src/app/model/publicacion';
 import { Usuario } from 'src/app/model/usuario';
 import { APIClientService } from 'src/app/services/apiclient.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { IonButton, IonContent, IonCard, IonCardHeader, IonCardTitle, IonItem, IonInput, IonTextarea, IonCardContent, IonIcon } from "@ionic/angular/standalone";
+import { showAlert, showAlertDUOC, showToast } from 'src/app/tools/message-routines';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-foro',
   templateUrl: './foro.component.html',
   styleUrls: ['./foro.component.scss'],
   standalone: true,
+  imports: [IonIcon, IonCardContent, IonTextarea, IonInput, IonItem, IonCardTitle, IonCardHeader, IonCard, IonContent, IonButton, IonicModule, CommonModule, FormsModule]
 })
 export class ForoComponent  implements OnInit {
 
@@ -24,12 +30,87 @@ export class ForoComponent  implements OnInit {
 
   ngOnInit() {
     this.api.listaPublicaciones.subscribe((publicaciones) => {
-      publicaciones.reserve();
+      publicaciones.reverse();
     this.publicaciones = publicaciones;
     });
     this.authService.usuarioAutenticado.subscribe((usuario) => {
       this.usuario = usuario? usuario : new Usuario();  
     });
-  } // FALTA AVANZAR MIN 8:29 Video 13 Componente api para foro
+    this.limpiarPublicacion();
+  }
+
+  setPublicacion(id: string, correo: string, nombre: string, apellido: string, titulo: string, contenido: string) {
+    this.publicacion.id = id;
+    this.publicacion.correo = correo;
+    this.publicacion.nombre = nombre;
+    this.publicacion.apellido = apellido;
+    this.publicacion.titulo = titulo;
+    this.publicacion.contenido = contenido;
+  }
+
+  limpiarPublicacion() {
+    this.setPublicacion('', '', '', '', '', '');
+    this.api.cargarPublicaciones();
+  }
+
+  guardarPublicacion() {
+    if (this.publicacion.titulo.trim() === '') {
+      showAlertDUOC('Antes de hacer una publicación, debes escribir un título');
+      return;	
+    }
+    if (this.publicacion.contenido.trim() === '') {
+      showAlertDUOC('Antes de hacer una publicación, debes escribir un contenido');
+      return;	
+    }
+    if(this.publicacion.id === '') {
+      this.crearPublicacion();
+    }
+    else{
+      this.actualizarPublicacion();
+    }
+  }
+
+  editarPublicacion(pub: any) {
+    if(pub.correo !== this.usuario.correo) {
+      showAlertDUOC('Solo puedes editar tus propias publicaciones');
+      return;
+    }
+    this.setPublicacion(pub.id, pub.correo, pub.nombre, pub.apellido, pub.titulo, pub.contenido);
+    this.topOfPage.nativeElement.scrollIntoView({block: 'end', behavior: 'smooth'});
+  }
+
+  mensajePublicacion(accion:string, id: Publicacion) {
+    showAlertDUOC(`La publicación ${id} ha sido ${accion} exitosamente`);
+    this.limpiarPublicacion();
+  }
+
+  crearPublicacion() {
+    this.publicacion.id='';
+    this.publicacion.correo = this.usuario.correo;
+    this.publicacion.nombre = this.usuario.nombre;
+    this.publicacion.apellido = this.usuario.apellido;
+    this.api.crearPublicacion(this.publicacion).subscribe({
+      next: (publicacion) => this.mensajePublicacion('creada', publicacion.id),
+      error: (error) => showToast('El servicio API Rest de Publicaciones no está disponible')
+    });
+  }
+
+  actualizarPublicacion() {
+    this.api.actualizarPublicacion(this.publicacion).subscribe({
+      next: (publicacion) => this.mensajePublicacion('actualizada', publicacion.id),
+      error: (error) => showToast('El servicio API Rest de Publicaciones no está disponible')
+    });
+  }
+
+  eliminarPublicacion(pub: any) {
+    if(pub.correo !== this.usuario.correo) {
+      showAlertDUOC('Solo puedes eliminar tus propias publicaciones');
+      return;
+    }
+    this.api.eliminarPublicacion(pub.id).subscribe({
+      next: (publicacion) => this.mensajePublicacion('eliminada', pub.id),
+      error: (error) => showToast('El servicio API Rest de Publicaciones no está disponible')
+    });
+  }
 
 }
