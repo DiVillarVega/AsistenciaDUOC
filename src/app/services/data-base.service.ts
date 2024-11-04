@@ -23,7 +23,8 @@ export class DataBaseService {
         nombre TEXT NOT NULL,
         apellido TEXT NOT NULL,
         nivelEducacional INTEGER NOT NULL,
-        fechaNacimiento INTEGER NOT NULL
+        fechaNacimiento INTEGER NOT NULL,
+        direccion TEXT NOT NULL
       );
       `]
     }
@@ -39,8 +40,9 @@ export class DataBaseService {
       nombre, 
       apellido,
       nivelEducacional, 
-      fechaNacimiento
-    ) VALUES (?,?,?,?,?,?,?,?,?);
+      fechaNacimiento,
+      direccion
+    ) VALUES (?,?,?,?,?,?,?,?,?,?);
   `;
 
   nombreBD = 'basedatos';
@@ -67,7 +69,8 @@ export class DataBaseService {
       'Ana', 
       'Torres', 
       NivelEducacional.buscarNivelEducacional(6)!,
-      new Date(2000, 0, 5)));
+      new Date(2000, 0, 5),
+      'San Carlos 123'));
     await this.guardarUsuario(Usuario.getNewUsuario(
       'jperez', 
       'jperez@duocuc.cl', 
@@ -77,7 +80,8 @@ export class DataBaseService {
       'Juan', 
       'Pérez',
       NivelEducacional.buscarNivelEducacional(5)!,
-      new Date(2000, 1, 10)));
+      new Date(2000, 1, 10),
+      'San Carlos 234'));
     await this.guardarUsuario(Usuario.getNewUsuario(
       'cmujica', 
       'cmujica@duocuc.cl', 
@@ -87,7 +91,8 @@ export class DataBaseService {
       'Carla', 
       'Mujica', 
       NivelEducacional.buscarNivelEducacional(6)!,
-      new Date(2000, 2, 20)));
+      new Date(2000, 2, 20),
+      'San Carlos 456'));
   }
 
   // Create y Update del CRUD. La creación y actualización de un usuario

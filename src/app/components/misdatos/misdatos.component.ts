@@ -29,7 +29,7 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 export class MisdatosComponent {
 
   usuario = new Usuario();
-  repeticionPassword= '';;
+  repeticionPassword= '';
   public listaNivelesEducacionales = NivelEducacional.getNivelesEducacionales();
 
   constructor(private authService: AuthService, private bd: DataBaseService) { 
@@ -61,11 +61,14 @@ export class MisdatosComponent {
   }
 
   async actualizarPerfil() {
+    if(!this.validarCampo('Cuenta', this.usuario.cuenta)) return;
     if(!this.validarCampo('Nombre', this.usuario.nombre)) return;
     if(!this.validarCampo('Apellido', this.usuario.apellido)) return;
     if(!this.validarCampo('Correo', this.usuario.correo)) return;
+    if(!this.validarCampo('Dirección', this.usuario.direccion)) return;
     if(!this.validarCampo('Pregunta secreta', this.usuario.preguntaSecreta)) return;
     if(!this.validarCampo('Respuesta secreta', this.usuario.respuestaSecreta)) return;
+    if(!this.validarCampo('Nivel educacional', this.usuario.nivelEducacional.id.toString())) return;
     if(!this.validarCampo('Contraseña', this.usuario.password)) return;
     if(this.usuario.password !== this.repeticionPassword){
       showAlertDUOC('Las contraseñas escritas deben ser iguales.');
