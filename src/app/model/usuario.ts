@@ -24,8 +24,7 @@ export class Usuario extends Persona {
     this.nombre = '';
     this.apellido = '';
     this.nivelEducacional = NivelEducacional.buscarNivelEducacional(1)!;
-    this.fechaNacimiento = undefined;
-    this.direccion = '';
+    this.fechaNacimiento = undefined;    
     this.asistencia = this.asistenciaVacia();
     this.listaUsuarios = [];
   }
@@ -55,7 +54,6 @@ export class Usuario extends Persona {
     apellido: string,
     nivelEducacional: NivelEducacional,
     fechaNacimiento: Date | undefined,
-    direccion: string
   ) {
     let usuario = new Usuario();
     usuario.cuenta = cuenta;
@@ -67,7 +65,6 @@ export class Usuario extends Persona {
     usuario.apellido = apellido;
     usuario.nivelEducacional = nivelEducacional;
     usuario.fechaNacimiento = fechaNacimiento;
-    usuario.direccion = direccion;
     return usuario;
   }
 
@@ -97,8 +94,7 @@ export class Usuario extends Persona {
       ${this.nombre}
       ${this.apellido}
       ${this.nivelEducacional.getEducacion()}
-      ${this.getFechaNacimiento()}
-      ${this.direccion}`;
+      ${this.getFechaNacimiento()}`;
   }
 
 }

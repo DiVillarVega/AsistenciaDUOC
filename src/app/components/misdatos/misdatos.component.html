@@ -25,10 +25,6 @@
     </ion-item>
 
     <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.direccion" label="Dirección" labelPlacement="floating"></ion-input>
-    </ion-item>
-
-    <ion-item>
       <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="Pregunta secreta" labelPlacement="floating"></ion-input>
     </ion-item>
 
@@ -47,7 +43,7 @@
     </ion-item>
     
     <!-- Fecha de nacimiento -->
-    <ion-item #itemFechaNacimiento>
+    <ion-item>
       <ion-label position="floating">Fecha de Nacimiento</ion-label>
       <br>
       <ion-datetime 
@@ -71,6 +67,16 @@
     <div class="ion-text-center ion-padding">
       <ion-button (click)="this.actualizarPerfil()" color="success">
         Guardar cambios
+      </ion-button>
+
+      <ion-button fill="clear" size="large" icon-only (click)="logout()">
+        <ion-icon name="log-out-outline" color="light"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="ion-text-center">
+      <ion-button fill="clear" size="large" icon-only (click)="logout()">
+        <ion-icon name="log-out-outline" color="light"></ion-icon>
       </ion-button>
     </div>
 

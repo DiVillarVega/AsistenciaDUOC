@@ -37,13 +37,20 @@
                       </ion-item>
                       <ion-grid>
                         <ion-row>
-                            <ion-col size="12" class="centrar">
-                                <ion-button id="open-loading" shape="block" size="small" (click)="ingresar()">Ingresar</ion-button>
-                            </ion-col>
+                          <ion-col class="centrar">
+                            <ion-button shape="round" size="medium" (click)="ingresar()">
+                              <ion-icon name="person-circle"></ion-icon>
+                              {{ 'Login.Button.Login' | translate }}
+                            </ion-button>
+                          </ion-col>
                         </ion-row>
+                        <ion-label class="centrar">
+                          <button (click)="recuperarContrasena()">{{ 'Login.Button.ForgotPassword' | translate }}</button>
+                        </ion-label>
+                        <ion-label class="centrar">
+                          <button (click)="ruta()">{{ 'Login.Button.gps' | translate }}</button>
+                        </ion-label>
                       </ion-grid>
-                    <u><a (click)="recuperarContrasena()">Recuperar contraseña</a></u>
-                    <br><br>
                 </ion-card-content>
             </ion-card>
         </div>

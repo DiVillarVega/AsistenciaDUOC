@@ -37,5 +37,9 @@ export const routes: Routes = [
   {
     path: 'correcto',
     loadComponent: () => import('./pages/correcto/correcto.page').then( m => m.CorrectoPage)
+  },  {
+    path: 'miruta',
+    loadComponent: () => import('./pages/miruta/miruta.page').then( m => m.MirutaPage)
   },
+
 ];

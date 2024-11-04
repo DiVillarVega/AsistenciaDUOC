@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonInput, IonButton, IonIcon, IonCard, IonLoading, IonCardContent, IonCardSubtitle, IonItem, IonCol, IonGrid, IonRow} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonInput, IonButton, IonIcon, IonCard, IonLoading, IonCardContent, IonCardSubtitle, IonItem, IonCol, IonGrid, IonRow, IonLabel } from '@ionic/angular/standalone';
 import { HeaderComponent } from "../../components/header/header.component";
 import { addIcons } from 'ionicons';
 import { personOutline } from 'ionicons/icons';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
     templateUrl: './ingreso.page.html',
     styleUrls: ['./ingreso.page.scss'],
     standalone: true,
-    imports: [IonRow, IonGrid, IonCol, IonItem, IonCardSubtitle, IonCardContent, IonLoading, IonCard, IonIcon, IonButton, IonInput, IonContent,
+    imports: [IonLabel, IonRow, IonGrid, IonCol, IonItem, IonCardSubtitle, IonCardContent, IonLoading, IonCard, IonIcon, IonButton, IonInput, IonContent,
        IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonHeader, IonFooter, HeaderComponent, TranslateModule, LanguageComponent]
 })
 export class IngresoPage{
@@ -43,6 +43,10 @@ export class IngresoPage{
   }
   navigateTheme() {
     this.router.navigate(['/theme']);
+  }
+
+  ruta(){
+    this.router.navigate(['/miruta']);
   }
 
 }
