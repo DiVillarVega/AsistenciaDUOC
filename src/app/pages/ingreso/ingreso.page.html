@@ -1,12 +1,8 @@
 <app-header></app-header>
-
 <ion-content [fullscreen]="true">
   <ion-toolbar class="transparent-bg">
     <div slot="start" class="ion-margin">
       <app-language #selectLanguage></app-language>
-    </div>
-    <div class="show-in-landscape">
-      <h1 class="glow-text"> {{ 'AppName' | translate }} </h1>
     </div>
     <div slot="end" class="ion-margin">
       <ion-button shape="round" size="small" (click)="navigateTheme()">
@@ -28,7 +24,7 @@
                         <ion-card-subtitle color="black">INICIAR SESIÓN</ion-card-subtitle>
                         <br>
                       </div>
-                      <br>
+                      
                       <ion-item>
                         <ion-input label="Cuenta" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
                       </ion-item>
@@ -45,10 +41,10 @@
                           </ion-col>
                         </ion-row>
                         <ion-label class="centrar">
-                          <button (click)="recuperarContrasena()">{{ 'Login.Button.ForgotPassword' | translate }}</button>
+                         <u> <a (click)="recuperarContrasena()">{{ 'Login.Button.ForgotPassword' | translate }}</a></u>
                         </ion-label>
                         <ion-label class="centrar">
-                          <button (click)="ruta()">{{ 'Login.Button.gps' | translate }}</button>
+                          <u><a (click)="ruta()">{{ 'Login.Button.gps' | translate }}</a></u>
                         </ion-label>
                       </ion-grid>
                 </ion-card-content>

@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardSubtitle, IonLabel } from '@ionic/angular/standalone';
+import { HeaderComponent } from "../../components/header/header.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-incorrecto',
   templateUrl: './incorrecto.page.html',
   styleUrls: ['./incorrecto.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonLabel, IonCardSubtitle, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
 })
-export class IncorrectoPage implements OnInit {
+export class IncorrectoPage {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
+  volverIngreso() {
+    this.router.navigate(['/ingreso']);
   }
 
 }

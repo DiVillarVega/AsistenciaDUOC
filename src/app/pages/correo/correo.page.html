@@ -15,14 +15,17 @@
           <br>
           <ion-card-subtitle>Paso 1: Ingresa tu Correo</ion-card-subtitle>
         </div>
-        <ion-item class="ion-text-center">
-          <ion-input type="text"  placeholder="Ingresa tu Correo"></ion-input>
-        </ion-item>
-        <div class="ion-text-center">
-          <ion-button  class="boton-azul" color="primary">
-            Recuperar contraseña
-          </ion-button>
-        </div>
+        <form #formCorreo="ngForm">
+          <ion-item class="ion-text-center">
+            <ion-input type="email" name="correo" [(ngModel)]="correo" placeholder="Ingresa tu Correo" required="true"></ion-input>
+          </ion-item>
+          <br>
+          <div class="ion-text-center">
+            <ion-button  class="boton-azul" color="primary" (click)="validarCorreo(formCorreo)">
+              Recuperar contraseña
+            </ion-button>
+          </div>
+        </form>
         <ion-label class="ion-text-center">
           <br>
           <!-- <u><a (click)="irAlLogin()">Volver al inicio de sesión</a></u> -->
