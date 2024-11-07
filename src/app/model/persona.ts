@@ -6,6 +6,7 @@ export class Persona {
   public apellido;
   public nivelEducacional: NivelEducacional;
   public fechaNacimiento: Date | undefined;
+  public direccion;
 
 
   constructor() {
@@ -13,7 +14,7 @@ export class Persona {
     this.apellido = '';
     this.nivelEducacional = NivelEducacional.buscarNivelEducacional(1)!;
     this.fechaNacimiento = new Date();
-    
+    this.direccion = '';
   }
 
   // Formatear la fecha de nacimiento en dd/mm/yyyy

@@ -13,6 +13,7 @@ export class Usuario extends Persona {
   public respuestaSecreta: string;
   public asistencia: Asistencia;
   public listaUsuarios: Usuario[];
+  
 
   constructor(@Optional() private db?: DataBaseService) {
     super();
@@ -27,6 +28,7 @@ export class Usuario extends Persona {
     this.fechaNacimiento = undefined;    
     this.asistencia = this.asistenciaVacia();
     this.listaUsuarios = [];
+    this.direccion='';
   }
 
   public asistenciaVacia(): Asistencia {
@@ -54,6 +56,7 @@ export class Usuario extends Persona {
     apellido: string,
     nivelEducacional: NivelEducacional,
     fechaNacimiento: Date | undefined,
+    direccion: string
   ) {
     let usuario = new Usuario();
     usuario.cuenta = cuenta;
@@ -65,6 +68,7 @@ export class Usuario extends Persona {
     usuario.apellido = apellido;
     usuario.nivelEducacional = nivelEducacional;
     usuario.fechaNacimiento = fechaNacimiento;
+    usuario.direccion=direccion;
     return usuario;
   }
 
@@ -94,7 +98,8 @@ export class Usuario extends Persona {
       ${this.nombre}
       ${this.apellido}
       ${this.nivelEducacional.getEducacion()}
-      ${this.getFechaNacimiento()}`;
+      ${this.getFechaNacimiento()}
+      ${this.direccion}`;
   }
 
 }

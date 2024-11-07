@@ -1,87 +1,86 @@
 <ion-content #page [fullscreen]="true" class="ion-padding-horizontal page">
-  <ion-card class="content ion-text-center">
-    
-    <!-- Título de bienvenida y datos personales -->
-    <div class="ion-padding-top">
-      <h1 class="ion-text-center">¡Bienvenido(a) {{ usuario.nombre }} {{ usuario.apellido }}!</h1>
-      <h4 class="ion-text-center">Mis Datos personales</h4>
-    </div>
+    <ion-card class="content ion-text-center">
 
-    <!-- Campos del formulario -->
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.cuenta" label="Cuenta" labelPlacement="floating" disabled="true"></ion-input>
-    </ion-item>
+        <!-- Título de bienvenida y datos personales -->
+        <div class="ion-padding-top">
+            <h1 class="ion-text-center">¡Bienvenido(a) {{ usuario.nombre }} {{ usuario.apellido }}!</h1>
+            <h4 class="ion-text-center">Mis Datos personales</h4>
+        </div>
 
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
-    </ion-item>
+        <!-- Campos del formulario -->
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.cuenta" label="Cuenta" labelPlacement="floating" disabled="true"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.apellido" label="Apellido" labelPlacement="floating"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating" disabled="true"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.apellido" label="Apellido" labelPlacement="floating"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="Pregunta secreta" labelPlacement="floating"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating" disabled="true"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta" labelPlacement="floating"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.direccion" label="Direccion" labelPlacement="floating"></ion-input>
+        </ion-item>
 
-    <!-- Selector de Educación -->
-    <ion-item>
-      <ion-label position="floating">Educación</ion-label>
-      <ion-select [(ngModel)]="usuario.nivelEducacional.id" interface="popover" style="width: 100%;">
-        <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
-          {{ nivel.nombre }}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
-    
-    <!-- Fecha de nacimiento -->
-    <ion-item>
-      <ion-label position="floating">Fecha de Nacimiento</ion-label>
-      <br>
-      <ion-datetime 
-        class="custom-datetime" 
-        presentation="date" 
-        displayFormat="DD/MM/YYYY" 
-        placeholder="dd/mm/yyyy"
-        [preferWheel]="true">
-      </ion-datetime>
-    </ion-item>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="Pregunta secreta" labelPlacement="floating"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input [(ngModel)]="usuario.password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta" labelPlacement="floating"></ion-input>
+        </ion-item>
 
-    <ion-item>
-      <ion-input [(ngModel)]="repeticionPassword" type="password" label="Repetir contraseña" labelPlacement="floating"></ion-input>
-    </ion-item>
+        <!-- Selector de Educación -->
+        <ion-item>
+            <ion-label position="floating">Educación</ion-label>
+            <ion-select [(ngModel)]="usuario.nivelEducacional.id" interface="popover" style="width: 100%;">
+                <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
+                    {{ nivel.nombre }}
+                </ion-select-option>
+            </ion-select>
+        </ion-item>
 
-    <!-- Botones de acción -->
-     <div>
-      <div class="ion-text-center ion-padding">
-        <ion-button (click)="this.actualizarPerfil()" color="success">
-          Guardar cambios
-        </ion-button>
-      </div>
-      <div>
-        <ion-button fill="clear" size="large" icon-only (click)="logout()">
-          <ion-icon name="log-out-outline" color="light"></ion-icon>
-        </ion-button>
-      </div>
-    </div>
-  </ion-card>
-  <!-- No me siento orgulloso de esto pero elimina el
+        <!-- Fecha de nacimiento -->
+        <ion-item>
+            <ion-label position="floating">Fecha de Nacimiento</ion-label>
+            <br>
+            <ion-datetime class="custom-datetime" presentation="date" displayFormat="DD/MM/YYYY" placeholder="dd/mm/yyyy" [preferWheel]="true">
+            </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-input [(ngModel)]="usuario.password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-input [(ngModel)]="repeticionPassword" type="password" label="Repetir contraseña" labelPlacement="floating"></ion-input>
+        </ion-item>
+
+        <!-- Botones de acción -->
+        <div>
+            <div class="ion-text-center ion-padding">
+                <ion-button (click)="this.actualizarPerfil()" color="success">
+                    Guardar cambios
+                </ion-button>
+            </div>
+            <div>
+                <ion-button fill="clear" size="large" icon-only (click)="logout()">
+                    <ion-icon name="log-out-outline" color="light"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+    </ion-card>
+    <!-- No me siento orgulloso de esto pero elimina el
    scrollbar y permite el boton de logout -->
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 </ion-content>
