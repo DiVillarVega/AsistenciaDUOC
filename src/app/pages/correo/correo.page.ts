@@ -32,14 +32,14 @@ export class CorreoPage {
 
    public async validarCorreo(form : NgForm){
       if(form.invalid){
-        showToast('Ingresar correo en formato valido');
+        showToast('Porfavor ingrese un correo');
         return;
       }else if(form.valid){
         const encontrado = await this.bd.buscarUsuarioPorCorreo(this.correo);
         if(!encontrado){
-          showToast('El correo ingresado no existe, intente nuevamente');
+          this.router.navigate(['/incorrecto']);
         } else {
-          this.router.navigate(['/pregunta'], {queryParams: {correo: this.correo}})
+          this.router.navigate(['/pregunta'], {queryParams: {correo: this.correo}});
         }
       }
     }

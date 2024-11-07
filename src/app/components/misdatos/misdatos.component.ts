@@ -73,10 +73,14 @@ export class MisdatosComponent {
       showAlertDUOC('Las contraseñas escritas deben ser iguales.');
       return;
     }
+    // Log de los datos antes de guardar
+    console.log("Datos del usuario que se guardarán:", this.usuario);
     await this.bd.guardarUsuario(this.usuario);
     this.authService.guardarUsuarioAutenticado(this.usuario);
     showToast('Sus datos fueron actualizados correctamente.');
   }
+
+
   logout() {
     this.authService.logout();
   }

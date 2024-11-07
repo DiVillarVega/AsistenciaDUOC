@@ -98,9 +98,20 @@ export class DataBaseService {
   // no debe poder ser cambiada.
   
   async guardarUsuario(usuario: Usuario): Promise<void> {
-    await this.db.run(this.sqlInsertUpdate, [usuario.cuenta, usuario.correo, usuario.password,
-      usuario.preguntaSecreta, usuario.respuestaSecreta, usuario.nombre, usuario.apellido,
-      usuario.nivelEducacional.id, usuario.fechaNacimiento?.getTime()]);
+    const fechaNacimiento = usuario.fechaNacimiento ? new Date(usuario.fechaNacimiento).getTime() : null;
+    
+    await this.db.run(this.sqlInsertUpdate, [
+      usuario.cuenta,
+      usuario.correo,
+      usuario.password,
+      usuario.preguntaSecreta,
+      usuario.respuestaSecreta,
+      usuario.nombre,
+      usuario.apellido,
+      usuario.nivelEducacional.id,
+      fechaNacimiento
+    ]);
+  
     await this.leerUsuarios();
   }
 

@@ -64,26 +64,24 @@
     </ion-item>
 
     <!-- Botones de acción -->
-    <div class="ion-text-center ion-padding">
-      <ion-button (click)="this.actualizarPerfil()" color="success">
-        Guardar cambios
-      </ion-button>
-
-      <ion-button fill="clear" size="large" icon-only (click)="logout()">
-        <ion-icon name="log-out-outline" color="light"></ion-icon>
-      </ion-button>
-    </div>
-
-    <div class="ion-text-center">
-      <ion-button fill="clear" size="large" icon-only (click)="logout()">
-        <ion-icon name="log-out-outline" color="light"></ion-icon>
-      </ion-button>
-    </div>
-
-    <div class="ion-text-center">
-      <ion-button fill="clear" size="large" icon-only (click)="logout()">
-        <ion-icon name="log-out-outline" color="light"></ion-icon>
-      </ion-button>
+     <div>
+      <div class="ion-text-center ion-padding">
+        <ion-button (click)="this.actualizarPerfil()" color="success">
+          Guardar cambios
+        </ion-button>
+      </div>
+      <div>
+        <ion-button fill="clear" size="large" icon-only (click)="logout()">
+          <ion-icon name="log-out-outline" color="light"></ion-icon>
+        </ion-button>
+      </div>
     </div>
   </ion-card>
+  <!-- No me siento orgulloso de esto pero elimina el
+   scrollbar y permite el boton de logout -->
+  <br>
+  <br>
+  <br>
+  <br>
+
 </ion-content>
