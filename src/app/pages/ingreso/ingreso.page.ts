@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonInput, IonButton, IonIcon, IonCard, IonLoading, IonCardContent, IonCardSubtitle, IonItem, IonCol, IonGrid, IonRow, IonLabel } from '@ionic/angular/standalone';
 import { HeaderComponent } from "../../components/header/header.component";
 import { addIcons } from 'ionicons';
-import { personOutline } from 'ionicons/icons';
+import { colorWandOutline, personCircle, personOutline } from 'ionicons/icons';
 import { Router } from '@angular/router';
 
 
@@ -27,7 +27,7 @@ export class IngresoPage{
   password: string= '1234';
 
   constructor(private authService: AuthService, private router: Router) { 
-    addIcons({personOutline})
+    addIcons({personCircle, colorWandOutline})
   }
 
   ingresar(){
