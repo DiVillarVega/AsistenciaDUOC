@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { IonButton, IonContent, IonCard, IonCardHeader, IonCardTitle, IonItem, IonInput, IonTextarea, IonCardContent, IonIcon } from "@ionic/angular/standalone";
 import { showAlert, showAlertDUOC, showToast } from 'src/app/tools/message-routines';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './foro.component.html',
   styleUrls: ['./foro.component.scss'],
   standalone: true,
-  imports: [IonIcon, IonCardContent, IonTextarea, IonInput, IonItem, IonCardTitle, IonCardHeader, IonCard, IonContent, IonButton, FormsModule]
+  imports: [IonIcon, IonCardContent, IonTextarea, IonInput, IonItem, IonCardTitle, IonCardHeader, IonCard, IonContent, IonButton, FormsModule, CommonModule]
 })
 export class ForoComponent  implements OnInit {
 
