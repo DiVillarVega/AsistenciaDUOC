@@ -8,6 +8,7 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 import * as L from 'leaflet'; // Importamos Leaflet
 import { HttpClient } from '@angular/common/http';
 import { GeolocationService } from 'src/app/services/geolocation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-miruta',
@@ -28,8 +29,9 @@ export class MirutaPage implements OnInit {
   map: L.Map | null = null;
   addressName: string = '';
   distance: string = '';
+  
 
-  constructor(private geo: GeolocationService, private http: HttpClient) { 
+  constructor(private geo: GeolocationService, private http: HttpClient,private router: Router) { 
 
   }
 
@@ -145,4 +147,7 @@ export class MirutaPage implements OnInit {
     L.Marker.prototype.options.icon = iconDefault;
   }
 
+  volverIngreso() {
+    this.router.navigate(['/ingreso']);
+  }
 }
