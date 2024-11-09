@@ -1,296 +1,325 @@
 {
-  "publicaciones": [
+  "posts": [
     {
       "userId": 1,
       "id": "1",
-      "titulo": "Instituto Duoc: Una Institución Educativa de Excelencia",
-      "contenido": "El Instituto Duoc se ha destacado por ofrecer una educación de calidad en diversas áreas del conocimiento. Sus programas académicos son altamente valorados por estudiantes y empleadores por igual."
+      "title": "Instituto Duoc: Una Institución Educativa de Excelencia",
+      "body": "El Instituto Duoc se ha destacado por ofrecer una educación de calidad en diversas áreas del conocimiento. Sus programas académicos son altamente valorados por estudiantes y empleadores por igual."
     },
     {
       "userId": 1,
       "id": "2",
-      "titulo": "Carrera de Ingeniería en Informática en el Instituto Duoc",
-      "cuerpo": "Si te apasiona la tecnología, la carrera de Ingeniería en Informática en el Instituto Duoc es una excelente opción. Aprenderás las habilidades necesarias para destacarte en el campo de la informática."
+      "title": "Carrera de Ingeniería en Informática en el Instituto Duoc",
+      "body": "Si te apasiona la tecnología, la carrera de Ingeniería en Informática en el Instituto Duoc es una excelente opción. Aprenderás las habilidades necesarias para destacarte en el campo de la informática."
     },
     {
       "userId": 2,
       "id": "3",
-      "titulo": "Experiencia de un Estudiante en el Instituto Duoc",
-      "cuerpo": "Como estudiante del Instituto Duoc, he tenido la oportunidad de participar en proyectos emocionantes y adquirir conocimientos prácticos que me preparan para el mundo laboral."
+      "title": "Experiencia de un Estudiante en el Instituto Duoc",
+      "body": "Como estudiante del Instituto Duoc, he tenido la oportunidad de participar en proyectos emocionantes y adquirir conocimientos prácticos que me preparan para el mundo laboral."
     },
     {
       "userId": 2,
       "id": "4",
-      "titulo": "Programas de Investigación en el Instituto Duoc",
-      "cuerpo": "El Instituto Duoc promueve la investigación en diversas áreas. Sus programas de investigación han contribuido significativamente al avance del conocimiento en campos como la ciencia y la tecnología."
+      "title": "Programas de Investigación en el Instituto Duoc",
+      "body": "El Instituto Duoc promueve la investigación en diversas áreas. Sus programas de investigación han contribuido significativamente al avance del conocimiento en campos como la ciencia y la tecnología."
     },
     {
       "userId": 3,
       "id": "5",
-      "titulo": "Desarrollo de Habilidades en el Instituto Duoc",
-      "cuerpo": "En el Instituto Duoc, no solo adquieres conocimientos teóricos, sino que también desarrollas habilidades prácticas que te ayudarán a destacarte en tu carrera profesional."
+      "title": "Desarrollo de Habilidades en el Instituto Duoc",
+      "body": "En el Instituto Duoc, no solo adquieres conocimientos teóricos, sino que también desarrollas habilidades prácticas que te ayudarán a destacarte en tu carrera profesional."
     },
     {
       "userId": 3,
       "id": "6",
-      "titulo": "Innovación y Emprendimiento en el Instituto Duoc",
-      "cuerpo": "El Instituto Duoc fomenta la innovación y el espíritu emprendedor entre sus estudiantes. Muchos de sus graduados han creado empresas exitosas."
+      "title": "Innovación y Emprendimiento en el Instituto Duoc",
+      "body": "El Instituto Duoc fomenta la innovación y el espíritu emprendedor entre sus estudiantes. Muchos de sus graduados han creado empresas exitosas."
     },
     {
       "userId": 4,
       "id": "7",
-      "titulo": "Instituto Duoc: Comprometido con la Educación de Calidad",
-      "cuerpo": "El Instituto Duoc se enorgullece de ofrecer una educación de calidad que prepara a los estudiantes para enfrentar los desafíos del mundo actual."
+      "title": "Instituto Duoc: Comprometido con la Educación de Calidad",
+      "body": "El Instituto Duoc se enorgullece de ofrecer una educación de calidad que prepara a los estudiantes para enfrentar los desafíos del mundo actual."
     },
     {
       "userId": 4,
       "id": "8",
-      "titulo": "Egresados Exitosos del Instituto Duoc",
-      "cuerpo": "Muchos egresados del Instituto Duoc han logrado alcanzar el éxito en sus carreras y contribuir positivamente a la sociedad."
+      "title": "Egresados Exitosos del Instituto Duoc",
+      "body": "Muchos egresados del Instituto Duoc han logrado alcanzar el éxito en sus carreras y contribuir positivamente a la sociedad."
     },
     {
       "userId": 5,
       "id": "9",
-      "titulo": "Estudiar en el Instituto Duoc: Una Experiencia Transformadora",
-      "cuerpo": "La experiencia de estudiar en el Instituto Duoc puede transformar tu vida y brindarte las herramientas necesarias para alcanzar tus metas profesionales."
+      "title": "Estudiar en el Instituto Duoc: Una Experiencia Transformadora",
+      "body": "La experiencia de estudiar en el Instituto Duoc puede transformar tu vida y brindarte las herramientas necesarias para alcanzar tus metas profesionales."
     },
     {
       "userId": 5,
       "id": "10",
-      "titulo": "Instituto Duoc: Compromiso con la Excelencia Académica",
-      "cuerpo": "La excelencia académica es una prioridad en el Instituto Duoc. Sus programas están diseñados para brindar una formación de alto nivel."
+      "title": "Instituto Duoc: Compromiso con la Excelencia Académica",
+      "body": "La excelencia académica es una prioridad en el Instituto Duoc. Sus programas están diseñados para brindar una formación de alto nivel."
     },
     {
       "userId": 6,
       "id": "11",
-      "titulo": "Oportunidades de Estudio en el Instituto Duoc",
-      "cuerpo": "El Instituto Duoc ofrece una amplia gama de oportunidades de estudio en diversas disciplinas. Encuentra el programa que se adapte a tus intereses y metas."
+      "title": "Oportunidades de Estudio en el Instituto Duoc",
+      "body": "El Instituto Duoc ofrece una amplia gama de oportunidades de estudio en diversas disciplinas. Encuentra el programa que se adapte a tus intereses y metas."
     },
     {
       "userId": 6,
       "id": "12",
-      "titulo": "Instituto Duoc: Compromiso con la Comunidad",
-      "cuerpo": "El Instituto Duoc está comprometido con la comunidad y realiza actividades de servicio social para contribuir al bienestar de la sociedad."
+      "title": "Instituto Duoc: Compromiso con la Comunidad",
+      "body": "El Instituto Duoc está comprometido con la comunidad y realiza actividades de servicio social para contribuir al bienestar de la sociedad."
     },
     {
       "userId": 7,
       "id": "13",
-      "titulo": "Aprendizaje en Línea en el Instituto Duoc",
-      "cuerpo": "El Instituto Duoc ofrece opciones de aprendizaje en línea para aquellos que desean flexibilidad en sus estudios. Aprovecha la tecnología para tu formación académica."
+      "title": "Aprendizaje en Línea en el Instituto Duoc",
+      "body": "El Instituto Duoc ofrece opciones de aprendizaje en línea para aquellos que desean flexibilidad en sus estudios. Aprovecha la tecnología para tu formación académica."
     },
     {
       "userId": 7,
       "id": "14",
-      "titulo": "Apoyo Académico en el Instituto Duoc",
-      "cuerpo": "El Instituto Duoc brinda apoyo académico a sus estudiantes para garantizar su éxito en sus estudios. Tutores y recursos están disponibles para ayudarte en tu camino."
+      "title": "Apoyo Académico en el Instituto Duoc",
+      "body": "El Instituto Duoc brinda apoyo académico a sus estudiantes para garantizar su éxito en sus estudios. Tutores y recursos están disponibles para ayudarte en tu camino."
     },
     {
       "userId": 8,
       "id": "15",
-      "titulo": "Instituto Duoc: Forjando el Futuro de la Educación",
-      "cuerpo": "El Instituto Duoc está a la vanguardia de la educación superior y sigue forjando el futuro de la educación a través de la innovación y la excelencia."
-    },
-    {
-      "id": "",
-      "correo": "atorres@duocuc.cl",
-      "nombre": "Ana",
-      "apellido": "Torres",
-      "titulo": "aaaa",
-      "contenido": "aaaa"
-    },
-    {
-      "id": "",
-      "correo": "atorres@duocuc.cl",
-      "nombre": "Ana",
-      "apellido": "Torres",
-      "titulo": "asfa",
-      "contenido": "assaf"
-    },
-    {
-      "id": "",
-      "correo": "atorres@duocuc.cl",
-      "nombre": "Ana",
-      "apellido": "Torres",
-      "titulo": "as",
-      "contenido": "as"
+      "title": "Instituto Duoc: Forjando el Futuro de la Educación",
+      "body": "El Instituto Duoc está a la vanguardia de la educación superior y sigue forjando el futuro de la educación a través de la innovación y la excelencia."
     }
   ],
-  "usuarios": [
+  "users": [
     {
       "id": "1",
-      "nombre": "Leanne Graham",
-      "apellido": "Bret",
-      "correo": "Sincere@april.biz",
-      "direccion": {
-        "calle": "Kulas Light",
-        "departamento": "Apt. 556",
-        "ciudad": "Gwenborough",
-        "codigoPostal": "92998-3874",
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
         "geo": {
-          "latitud": "-37.3159",
-          "longitud": "81.1496"
+          "lat": "-37.3159",
+          "lng": "81.1496"
         }
       },
-      "telefono": "1-770-736-8031 x56442",
-      "sitioWeb": "hildegard.org",
-      "empresa": {
-        "nombre": "Romaguera-Crona",
-        "fraseCaptura": "Red neuronal de cliente en múltiples capas",
-        "bs": "aprovechar mercados electrónicos en tiempo real"
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
       }
     },
     {
       "id": "2",
-      "nombre": "Ervin Howell",
-      "correo": "Shanna@melissa.tv",
-      "direccion": {
-        "calle": "Victor Plains",
-        "departamento": "Suite 879",
-        "ciudad": "Wisokyburgh",
-        "codigoPostal": "90566-7771",
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "Shanna@melissa.tv",
+      "address": {
+        "street": "Victor Plains",
+        "suite": "Suite 879",
+        "city": "Wisokyburgh",
+        "zipcode": "90566-7771",
         "geo": {
-          "latitud": "-43.9509",
-          "longitud": "-34.4618"
+          "lat": "-43.9509",
+          "lng": "-34.4618"
         }
       },
-      "telefono": "010-692-6593 x09125",
-      "sitioWeb": "anastasia.net",
-      "empresa": {
-        "nombre": "Deckow-Crist",
-        "fraseCaptura": "Contingencia didáctica proactiva",
-        "bs": "sinergizar cadenas de suministro escalables"
+      "phone": "010-692-6593 x09125",
+      "website": "anastasia.net",
+      "company": {
+        "name": "Deckow-Crist",
+        "catchPhrase": "Proactive didactic contingency",
+        "bs": "synergize scalable supply-chains"
       }
     },
     {
       "id": "3",
-      "nombre": "Clementine Bauch",
-      "correo": "Nathan@yesenia.net",
-      "direccion": {
-        "calle": "Douglas Extension",
-        "departamento": "Suite 847",
-        "ciudad": "McKenziehaven",
-        "codigoPostal": "59590-4157",
+      "name": "Clementine Bauch",
+      "username": "Samantha",
+      "email": "Nathan@yesenia.net",
+      "address": {
+        "street": "Douglas Extension",
+        "suite": "Suite 847",
+        "city": "McKenziehaven",
+        "zipcode": "59590-4157",
         "geo": {
-          "latitud": "-68.6102",
-          "longitud": "-47.0653"
+          "lat": "-68.6102",
+          "lng": "-47.0653"
         }
       },
-      "telefono": "1-463-123-4447",
-      "sitioWeb": "ramiro.info",
-      "empresa": {
-        "nombre": "Romaguera-Jacobson",
-        "fraseCaptura": "Interfaz bifurcada cara a cara",
-        "bs": "habilitar aplicaciones estratégicas"
+      "phone": "1-463-123-4447",
+      "website": "ramiro.info",
+      "company": {
+        "name": "Romaguera-Jacobson",
+        "catchPhrase": "Face to face bifurcated interface",
+        "bs": "e-enable strategic applications"
       }
     },
     {
       "id": "4",
-      "nombre": "Patricia Lebsack",
-      "correo": "Julianne.OConner@kory.org",
-      "direccion": {
-        "calle": "Hoeger Mall",
-        "departamento": "Apt. 692",
-        "ciudad": "South Elvis",
-        "codigoPostal": "53919-4257",
+      "name": "Patricia Lebsack",
+      "username": "Karianne",
+      "email": "Julianne.OConner@kory.org",
+      "address": {
+        "street": "Hoeger Mall",
+        "suite": "Apt. 692",
+        "city": "South Elvis",
+        "zipcode": "53919-4257",
         "geo": {
-          "latitud": "29.4572",
-          "longitud": "-164.2990"
+          "lat": "29.4572",
+          "lng": "-164.2990"
         }
       },
-      "telefono": "493-170-9623 x156",
-      "sitioWeb": "kale.biz",
-      "empresa": {
-        "nombre": "Robel-Corkery",
-        "fraseCaptura": "Productividad de cero tolerancia de múltiples niveles",
-        "bs": "transicionar servicios web de vanguardia"
+      "phone": "493-170-9623 x156",
+      "website": "kale.biz",
+      "company": {
+        "name": "Robel-Corkery",
+        "catchPhrase": "Multi-tiered zero tolerance productivity",
+        "bs": "transition cutting-edge web services"
       }
     },
     {
       "id": "5",
-      "nombre": "Chelsey Dietrich",
-      "correo": "Lucio_Hettinger@annie.ca",
-      "direccion": {
-        "calle": "Skiles Walks",
-        "departamento": "Suite 351",
-        "ciudad": "Roscoeview",
-        "codigoPostal": "33263",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "email": "Lucio_Hettinger@annie.ca",
+      "address": {
+        "street": "Skiles Walks",
+        "suite": "Suite 351",
+        "city": "Roscoeview",
+        "zipcode": "33263",
         "geo": {
-          "latitud": "-31.8129",
-          "longitud": "62.5342"
+          "lat": "-31.8129",
+          "lng": "62.5342"
         }
       },
-      "telefono": "(254)954-1289",
-      "sitioWeb": "demarco.info",
-      "empresa": {
-        "nombre": "Keebler LLC",
-        "fraseCaptura": "Monitoreo de la capacidad de respuesta",
-        "bs": "implantar soluciones en tiempo real"
+      "phone": "(254)954-1289",
+      "website": "demarco.info",
+      "company": {
+        "name": "Keebler LLC",
+        "catchPhrase": "User-centric fault-tolerant solution",
+        "bs": "revolutionize end-to-end systems"
       }
     },
     {
       "id": "6",
-      "nombre": "Mrs. Dennis Schulist",
-      "correo": "Karley_Dach@jasper.info",
-      "direccion": {
-        "calle": "Norberto Crossing",
-        "departamento": "Apt. 950",
-        "ciudad": "McKenziehaven",
-        "codigoPostal": "59590-4157",
+      "name": "Mrs. Dennis Schulist",
+      "username": "Leopoldo_Corkery",
+      "email": "Karley_Dach@jasper.info",
+      "address": {
+        "street": "Norberto Crossing",
+        "suite": "Apt. 950",
+        "city": "South Christy",
+        "zipcode": "23505-1337",
         "geo": {
-          "latitud": "-68.6102",
-          "longitud": "-47.0653"
+          "lat": "-71.4197",
+          "lng": "71.7478"
         }
       },
-      "telefono": "1-477-935-8478 x6430",
-      "sitioWeb": "ola.org",
-      "empresa": {
-        "nombre": "Keebler LLC",
-        "fraseCaptura": "Operaciones de entrada y salida",
-        "bs": "proporcionar soluciones transitorias"
+      "phone": "1-477-935-8478 x6430",
+      "website": "ola.org",
+      "company": {
+        "name": "Considine-Lockman",
+        "catchPhrase": "Synchronised bottom-line interface",
+        "bs": "e-enable innovative applications"
       }
     },
     {
       "id": "7",
-      "nombre": "Kurtis Weissnat",
-      "correo": "Telly.Hintz@karina.biz",
-      "direccion": {
-        "calle": "Rex Trail",
-        "departamento": "Apt. 198",
-        "ciudad": "South Elvis",
-        "codigoPostal": "53919-4257",
+      "name": "Kurtis Weissnat",
+      "username": "Elwyn.Skiles",
+      "email": "Telly.Hoeger@billy.biz",
+      "address": {
+        "street": "Rex Trail",
+        "suite": "Suite 280",
+        "city": "Howemouth",
+        "zipcode": "58804-1099",
         "geo": {
-          "latitud": "29.4572",
-          "longitud": "-164.2990"
+          "lat": "24.8918",
+          "lng": "21.8984"
         }
       },
-      "telefono": "210.067.0887",
-      "sitioWeb": "elvis.io",
-      "empresa": {
-        "nombre": "Barton Group",
-        "fraseCaptura": "Sinergia de e-commerce",
-        "bs": "innovar sinergias de red"
+      "phone": "210.067.6132",
+      "website": "elvis.io",
+      "company": {
+        "name": "Johns Group",
+        "catchPhrase": "Configurable multimedia task-force",
+        "bs": "generate enterprise e-tailers"
       }
     },
     {
       "id": "8",
-      "nombre": "Nicholas Runolfsdottir V",
-      "correo": "Sherwood@rosamond.me",
-      "direccion": {
-        "calle": "Ellsworth Summit",
-        "departamento": "Apt. 729",
-        "ciudad": "Hochester",
-        "codigoPostal": "58551-4146",
+      "name": "Nicholas Runolfsdottir V",
+      "username": "Maxime_Nienow",
+      "email": "Sherwood@rosamond.me",
+      "address": {
+        "street": "Ellsworth Summit",
+        "suite": "Suite 729",
+        "city": "Aliyaview",
+        "zipcode": "45169",
         "geo": {
-          "latitud": "43.1587",
-          "longitud": "-70.1975"
+          "lat": "-14.3990",
+          "lng": "-120.7677"
         }
       },
-      "telefono": "585.804.7420",
-      "sitioWeb": "jacynthe.com",
-      "empresa": {
-        "nombre": "Hickle Group",
-        "fraseCaptura": "Aprovechar aplicaciones de marca",
-        "bs": "navegar procesos de interfaces"
+      "phone": "586.493.6943 x140",
+      "website": "jacynthe.com",
+      "company": {
+        "name": "Abernathy Group",
+        "catchPhrase": "Implemented secondary concept",
+        "bs": "e-enable extensible e-tailers"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Glenna Reichert",
+      "username": "Delphine",
+      "email": "Chaim_McDermott@dana.io",
+      "address": {
+        "street": "Dayna Park",
+        "suite": "Suite 449",
+        "city": "Bartholomebury",
+        "zipcode": "76495-3109",
+        "geo": {
+          "lat": "24.6463",
+          "lng": "-168.8889"
+        }
+      },
+      "phone": "(775)976-6794 x41206",
+      "website": "conrad.com",
+      "company": {
+        "name": "Yost and Sons",
+        "catchPhrase": "Switchable contextually-based project",
+        "bs": "aggregate real-time technologies"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Clementina DuBuque",
+      "username": "Moriah.Stanton",
+      "email": "Rey.Padberg@karina.biz",
+      "address": {
+        "street": "Kattie Turnpike",
+        "suite": "Suite 198",
+        "city": "Lebsackbury",
+        "zipcode": "31428-2261",
+        "geo": {
+          "lat": "-38.2386",
+          "lng": "57.2232"
+        }
+      },
+      "phone": "024-648-3804",
+      "website": "ambrose.net",
+      "company": {
+        "name": "Hoeger LLC",
+        "catchPhrase": "Centralized empowering task-force",
+        "bs": "target end-to-end models"
       }
     }
   ]

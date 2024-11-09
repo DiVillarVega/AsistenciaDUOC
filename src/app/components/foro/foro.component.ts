@@ -1,116 +1,105 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-
-import { Publicacion } from 'src/app/model/publicacion';
-import { Usuario } from 'src/app/model/usuario';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { APIClientService } from 'src/app/services/apiclient.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { IonButton, IonContent, IonCard, IonCardHeader, IonCardTitle, IonItem, IonInput, IonTextarea, IonCardContent, IonIcon } from "@ionic/angular/standalone";
-import { showAlert, showAlertDUOC, showToast } from 'src/app/tools/message-routines';
-import { FormsModule } from '@angular/forms';
+import { IonFabButton, IonFab, IonList, IonCardContent, IonHeader
+  , IonToolbar, IonTitle, IonCard, IonCardHeader, IonCardTitle
+  , IonCardSubtitle, IonItem, IonLabel, IonInput, IonTextarea
+  , IonGrid, IonRow, IonCol, IonButton, IonIcon, IonContent } from '@ionic/angular/standalone';
+import { pencilOutline, trashOutline, add, save, trash } from 'ionicons/icons';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
+import { Post } from 'src/app/model/post';
+import { showToast } from 'src/app/tools/message-functions';
+import { addIcons } from 'ionicons';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-foro',
   templateUrl: './foro.component.html',
   styleUrls: ['./foro.component.scss'],
   standalone: true,
-  imports: [IonIcon, IonCardContent, IonTextarea, IonInput, IonItem, IonCardTitle, IonCardHeader, IonCard, IonContent, IonButton, FormsModule, CommonModule]
+  imports: [IonList, IonHeader, IonToolbar, IonTitle, IonCard
+    , IonCardHeader, IonCardTitle, IonCardSubtitle, IonItem
+    , IonLabel, IonInput, IonTextarea, IonGrid, IonRow, IonCol
+    , IonButton, IonIcon, IonContent, IonCardContent, IonFab, IonFabButton
+    , CommonModule, FormsModule]
 })
-export class ForoComponent  implements OnInit {
+export class ForoComponent implements OnInit, OnDestroy {
 
-  @ViewChild("topOfPage") topOfPage!: ElementRef;
+  post: Post = new Post();
+  posts: Post[] = [];
+  selectedPostText = '';
+  intervalId: any = null;
+  private postsSubscription!: Subscription;
 
-  usuario = new Usuario();
-  publicacion: Publicacion = new Publicacion();
-  publicaciones: any;
-
-
-  constructor(private authService: AuthService, private api:APIClientService) { }
+  constructor(private api: APIClientService, private auth: AuthService) {
+    addIcons({ pencilOutline, trashOutline, add, trash, save });
+  }
 
   ngOnInit() {
-    this.api.listaPublicaciones.subscribe((publicaciones) => {
-      publicaciones.reverse();
-    this.publicaciones = publicaciones;
+    this.postsSubscription = this.api.postList.subscribe((posts) => {
+      this.posts = posts;
     });
-    this.authService.usuarioAutenticado.subscribe((usuario) => {
-      this.usuario = usuario? usuario : new Usuario();  
-    });
-    this.limpiarPublicacion();
+    this.api.refreshPostList(); // Actualiza lista de posts al iniciar
   }
 
-  setPublicacion(id: string, correo: string, nombre: string, apellido: string, titulo: string, contenido: string) {
-    this.publicacion.id = id;
-    this.publicacion.correo = correo;
-    this.publicacion.nombre = nombre;
-    this.publicacion.apellido = apellido;
-    this.publicacion.titulo = titulo;
-    this.publicacion.contenido = contenido;
+  ngOnDestroy() {
+    if (this.postsSubscription) this.postsSubscription.unsubscribe();
   }
 
-  limpiarPublicacion() {
-    this.setPublicacion('', '', '', '', '', '');
-    this.api.cargarPublicaciones();
+  cleanPost() {
+    this.post = new Post();
+    this.selectedPostText = 'Nueva publicación';
   }
 
-  guardarPublicacion() {
-    if (this.publicacion.titulo.trim() === '') {
-      showAlertDUOC('Antes de hacer una publicación, debes escribir un título');
-      return;	
-    }
-    if (this.publicacion.contenido.trim() === '') {
-      showAlertDUOC('Antes de hacer una publicación, debes escribir un contenido');
-      return;	
-    }
-    if(this.publicacion.id === '') {
-      this.crearPublicacion();
-    }
-    else{
-      this.actualizarPublicacion();
-    }
-  }
-
-  editarPublicacion(pub: any) {
-    if(pub.correo !== this.usuario.correo) {
-      showAlertDUOC('Solo puedes editar tus propias publicaciones');
+  savePost() {
+    if (!this.post.title.trim()) {
+      showToast('Por favor, completa el título.');
       return;
     }
-    this.setPublicacion(pub.id, pub.correo, pub.nombre, pub.apellido, pub.titulo, pub.contenido);
-    this.topOfPage.nativeElement.scrollIntoView({block: 'end', behavior: 'smooth'});
-  }
-
-  mensajePublicacion(accion:string, id: Publicacion) {
-    showAlertDUOC(`La publicación ${id} ha sido ${accion} exitosamente`);
-    this.limpiarPublicacion();
-  }
-
-  crearPublicacion() {
-    this.publicacion.id='';
-    this.publicacion.correo = this.usuario.correo;
-    this.publicacion.nombre = this.usuario.nombre;
-    this.publicacion.apellido = this.usuario.apellido;
-    this.api.crearPublicacion(this.publicacion).subscribe({
-      next: (publicacion) => this.mensajePublicacion('creada', publicacion.id),
-      error: (error) => showToast('El servicio API Rest de Publicaciones no está disponible')
-    });
-  }
-
-  actualizarPublicacion() {
-    this.api.actualizarPublicacion(this.publicacion).subscribe({
-      next: (publicacion) => this.mensajePublicacion('actualizada', publicacion.id),
-      error: (error) => showToast('El servicio API Rest de Publicaciones no está disponible')
-    });
-  }
-
-  eliminarPublicacion(pub: any) {
-    if(pub.correo !== this.usuario.correo) {
-      showAlertDUOC('Solo puedes eliminar tus propias publicaciones');
+    if (!this.post.body.trim()) {
+      showToast('Por favor, completa el cuerpo.');
       return;
     }
-    this.api.eliminarPublicacion(pub.id).subscribe({
-      next: (publicacion) => this.mensajePublicacion('eliminada', pub.id),
-      error: (error) => showToast('El servicio API Rest de Publicaciones no está disponible')
-    });
+
+    if (this.post.id) {
+      this.updatePost();
+    } else {
+      this.createPost();
+    }
   }
 
+  private async createPost() {
+    const createdPost = await this.api.createPost(this.post);
+    if (createdPost) {
+      showToast(`Publicación creada correctamente: ${createdPost.title}`);
+      this.cleanPost();
+    }
+  }
+
+  private async updatePost() {
+    const updatedPost = await this.api.updatePost(this.post);
+    if (updatedPost) {
+      showToast(`Publicación actualizada correctamente: ${updatedPost.title}`);
+      this.cleanPost();
+    }
+  }
+
+  editPost(post: Post) {
+    this.post = { ...post }; // Crea una copia para editar sin afectar la lista
+    this.selectedPostText = `Editando publicación #${post.id}`;
+    document.getElementById('topOfPage')!.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  async deletePost(post: Post) {
+    const success = await this.api.deletePost(post.id);
+    if (success) {
+      showToast(`Publicación eliminada correctamente: ${post.id}`);
+      this.cleanPost();
+    }
+  }
+
+  getPostId(index: number, post: Post) {
+    return post.id;
+  }
 }
