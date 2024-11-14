@@ -1,27 +1,21 @@
 {
-    "AppName": "Asistencia Duoc",
+    "AppName": "Sistema Asistencia Duoc",
     "AuthorText": "Desarrollado por:",
     "Author": "Mr World Wide",
     "Language": "Idioma",
     "Language.English": "English",
     "Language.Spanish": "Español",
     "Language.Mapudungun": "Mapudungun",
-    
-    "Start.StartNewExperience": "Comienza una nueva experiencia",
 
     "Login.Title.Login": "Iniciar sesión",
     "Login.Title.Theme": "Tema",
-    "Login.Label.Email": "Correo",
-    "Login.Placeholder.Email": "Ingresa aquí tu correo",
+    "Login.Label.Cuenta": "Cuenta",
     "Login.Label.Password": "Contraseña",
-    "Login.Placeholder.Password": "Ingresa aquí tu contraseña",
     "Login.Button.Login": "Ingresar",
     "Login.Button.gps": "Mi ruta a Duoc",
     "Login.Button.ForgotPassword": "Olvidé mi contraseña",
     "Login.Button.DarkMode": "Oscuro",
-
-    "WelcomePage.Title.Wellcome": "¡Bienvenido a Angry-Dinosaurs!",
-
+    
     "Footer.Button.MyCampus": "Mi sede Duoc",
     "Footer.Button.MyLocation": "Mi ubicación",
     "Footer.Button.CalculateRoute": "Calcular Ruta",
@@ -31,6 +25,15 @@
     "Footer.Button.MyClass": "Mi Clase",
     "Footer.Button.Forum": "Foro",
     "Footer.Button.MyData": "Mis Datos",
+
+    "QR.Message.Welcome": "Bienvenido(a)",
+    "QR.Message.Asistencia": "Registra tu asistencia a clases",
+    "QR.Message.Presente": "Ya estás presente en tu clase",
+
+    "MiClase.Title": "DATOS DE LA ASIGNATURA",
+    "MiClase.NoData": "No hay datos disponibles para esta asignatura",
+
+    "MisDatos.Title": "Mis datos personales",
 
     "WELCOME": "Bienvenid@",
     "MY_DATA": "Mis Datos",
@@ -49,7 +52,7 @@
     "UPDATE": "Actualizar",
     "SAVE": "Guardar",
 
-    "HomePage.Button.Wellcome": "Inicio",
+    "HomePage.Button.Welcome": "Inicio",
     "HomePage.Button.Scan": "Escanear",
     "HomePage.Button.Dinosaur": "Dinosaurio",
     "HomePage.Button.Forum": "Foro",

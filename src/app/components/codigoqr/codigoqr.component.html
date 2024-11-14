@@ -4,12 +4,12 @@
     <ion-title>
       <ion-label class="ion-text-center">
         <h1 class="titulo-bienvenida">
-          ¡Bienvenido(a) 
+          ¡{{ 'QR.Message.Welcome' | translate }}
           {{ usuario.nombre }} 
           {{ usuario.apellido }}!
         </h1>
-        <h4 *ngIf="!usuario.asistencia"> Registra tu asistencia a clases </h4>
-        <h4 *ngIf="usuario.asistencia"> Ya estás presente en tu clase </h4>
+        <h4 *ngIf="!usuario.asistencia"> {{ 'QR.Message.Asistencia' | translate }} </h4>
+        <h4 *ngIf="usuario.asistencia"> {{ 'QR.Message.Presente' | translate }} </h4>
       </ion-label>
     </ion-title>
   </div>

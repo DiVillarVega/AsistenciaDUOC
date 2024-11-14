@@ -6,13 +6,14 @@ import { Usuario } from 'src/app/model/usuario';
 import jsQR, { QRCode } from 'jsqr';
 import { Asistencia } from 'src/app/interfaces/asistencia';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-codigoqr',
   templateUrl: './codigoqr.component.html',
   styleUrls: ['./codigoqr.component.scss'],
   standalone: true,
-  imports: [IonContent, IonLabel, IonTitle, CommonModule]
+  imports: [IonContent, IonLabel, IonTitle, CommonModule, TranslateModule]
 })
 export class CodigoqrComponent  implements OnInit {
   @ViewChild('titulo',{ read: ElementRef }) itemTitulo!: ElementRef

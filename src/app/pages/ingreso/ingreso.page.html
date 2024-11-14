@@ -7,12 +7,12 @@
     </div>
     <div slot="end" class="ion-margin">
       <ion-button shape="round" size="small" (click)="navigateTheme()">
-        Tema
+        {{ 'Login.Title.Theme' | translate }}
         <ion-icon slot="start" name="color-wand-outline"></ion-icon>
       </ion-button>
     </div>
    </ion-toolbar>  
-    <ion-title class="text-with-background ion-text-center">Sistema de Asistencia Duoc</ion-title>
+    <ion-title class="text-with-background ion-text-center">{{ 'AppName' | translate }}</ion-title>
 
     <div>
         <div class="ion-padding-vertical">
@@ -22,15 +22,15 @@
                 <ion-card-content>
                     <div class="text-with-background2">
                         <br>
-                        <ion-card-subtitle color="black">INICIAR SESIÓN</ion-card-subtitle>
+                        <ion-card-subtitle color="black">{{ 'Login.Title.Login' | translate }}</ion-card-subtitle>
                         <br>
                       </div>
                       
                       <ion-item>
-                        <ion-input label="Cuenta" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
+                        <ion-input label="{{ 'Login.Label.Cuenta' | translate }}" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
                       </ion-item>
                       <ion-item>
-                        <ion-input type="password" label="Password" labelPlacement="floating" [(ngModel)]="password"></ion-input>
+                        <ion-input type="password" label="{{ 'Login.Label.Password' | translate }}" labelPlacement="floating" [(ngModel)]="password"></ion-input>
                       </ion-item>
                       <ion-grid>
                         <ion-row>

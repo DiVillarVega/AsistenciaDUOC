@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <ion-card *ngIf="usuario?.asistencia; else noUsuarioTemplate">
     <ion-card-header>
-      <h1 class="titulo_datos">DATOS DE LA ASIGNATURA</h1>
+      <h1 class="titulo_datos">{{ 'MiClase.Title' | translate }}</h1>
     </ion-card-header>
 
     <ion-card-content>
@@ -53,5 +53,5 @@
 </ion-content>
 
 <ng-template #noUsuarioTemplate>
-  <p>No hay datos disponibles para el usuario.</p>
+  <p>{{ 'MiClase.NoData' | translate }}</p>
 </ng-template>

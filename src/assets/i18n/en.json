@@ -1,56 +1,58 @@
 {
-    "AppName": "Asistencia Duoc",
+    "AppName": "Duoc Attendance System",
     "AuthorText": "Developed by:",
     "Author": "Mr World Wide",
     "Language": "Language",
-    "Language.English": "English",
-    "Language.Spanish": "Español",
+    "Language.English": "Español",
+    "Language.Spanish": "Spanish",
     "Language.Mapudungun": "Mapudungun",
-    
-    "Start.StartNewExperience": "Start a new experience",
 
     "Login.Title.Login": "Login",
-    "Login.Title.Theme": "Color Theme",
-    "Login.Label.Email": "Email",
-    "Login.Placeholder.Email": "Enter your email here",
+    "Login.Title.Theme": "Theme",
+    "Login.Label.Cuenta": "Account",
     "Login.Label.Password": "Password",
-    "Login.Placeholder.Password": "Enter your password here",
-    "Login.Button.Login": "Login",
+    "Login.Button.Login": "Sign In",
     "Login.Button.gps": "My route to Duoc",
     "Login.Button.ForgotPassword": "Forgot my password",
-    "Login.Button.DarkMode": "Dark Mode",
+    "Login.Button.DarkMode": "Dark",
 
-    "WelcomePage.Title.Wellcome": "Welcome to Angry-Dinosaurs!",
-
-    "Footer.Button.MyCampus": "My Duoc headquarters",
-    "Footer.Button.MyLocation": "My location",
+    "Footer.Button.MyCampus": "My Duoc Campus",
+    "Footer.Button.MyLocation": "My Location",
     "Footer.Button.CalculateRoute": "Calculate Route",
     "Footer.Button.BackToLogin": "Back to Login",
-    
+
     "Footer.Button.Home": "Home",
     "Footer.Button.MyClass": "My Class",
     "Footer.Button.Forum": "Forum",
     "Footer.Button.MyData": "My Data",
 
-        "WELCOME": "Welcome",
-        "MY_DATA": "My data",
-        "ACCOUNT": "Account",
-        "NAME": "Name",
-        "LAST_NAME": "Last name",
-        "EDUCATION": "Education",
-        "EMAIL": "Email",
-        "ADDRESS": "Address",
-        "BIRTH_DATE": "Birth date",
-        "SECRET_QUESTION": "Secret question",
-        "SECRET_ANSWER": "Secret answer",
-        "PASSWORD": "Password",
-        "REPEAT_PASSWORD": "Repeat password",
-        "CLEAR": "Clear",
-        "UPDATE": "Update",
-        "SAVE": "Save",
-        
+    "QR.Message.Welcome": "Welcome",
+    "QR.Message.Asistencia": "Register your class attendance",
+    "QR.Message.Presente": "You are already present in your class",
 
-    "HomePage.Button.Wellcome": "Home",
+    "MiClase.Title": "COURSE DETAILS",
+    "MiClase.NoData": "No data available for this course",
+
+    "MisDatos.Title": "My personal data",
+
+    "WELCOME": "Welcome",
+    "MY_DATA": "My Data",
+    "ACCOUNT": "Account",
+    "NAME": "Name",
+    "LAST_NAME": "Last Name",
+    "EDUCATION": "Education",
+    "EMAIL": "Email",
+    "ADDRESS": "Address",
+    "BIRTH_DATE": "Birth Date",
+    "SECRET_QUESTION": "Secret Question",
+    "SECRET_ANSWER": "Secret Answer",
+    "PASSWORD": "Password",
+    "REPEAT_PASSWORD": "Repeat Password",
+    "CLEAR": "Clear",
+    "UPDATE": "Update",
+    "SAVE": "Save",
+
+    "HomePage.Button.Welcome": "Home",
     "HomePage.Button.Scan": "Scan",
     "HomePage.Button.Dinosaur": "Dinosaur",
     "HomePage.Button.Forum": "Forum",
@@ -62,7 +64,7 @@
     "ThemePage.Color.Red": "Red",
     "ThemePage.Color.Facebook": "Facebook",
     "ThemePage.Color.Instagram": "Instagram",
-    "ThemePage.Color.Duoc": "Duoc",
+    "ThemePage.Color.Duoc": "DUOC",
     
     "ThemePage.Button.Primary": "Primary Button",
     "ThemePage.Button.Secondary": "Secondary Button",
@@ -74,18 +76,18 @@
     "ThemePage.Button.Dark": "Dark Button",
     "ThemePage.Button.Home": "Home",
     "ThemePage.Button.Logout": "Logout",
-    
+
     "ThemePage.Card.Title": "Card Title",
     "ThemePage.Card.Subtitle": "Card Subtitle",
-    "ThemePage.Card.Content": "This is the content of the card. You can customize the colors of the card and its content.",
-    
+    "ThemePage.Card.Content": "This is the card content. You can customize the card colors and its content.",
+
     "ThemePage.List.Title": "Lists",
     "ThemePage.List.Item1": "List Item 1",
     "ThemePage.List.Item2": "List Item 2",
     "ThemePage.List.Item3": "List Item 3",
-    
+
     "ThemePage.Calendar.Title": "Calendars",
-    
+
     "ThemePage.Form.Title": "Data Entry",
     "ThemePage.Form.NameLabel": "Name",
     "ThemePage.Form.NamePlaceholder": "Enter your name",

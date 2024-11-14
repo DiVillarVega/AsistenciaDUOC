@@ -9,6 +9,7 @@ import { MiclaseComponent } from 'src/app/components/miclase/miclase.component';
 import { ForoComponent } from 'src/app/components/foro/foro.component';
 import { MisdatosComponent } from 'src/app/components/misdatos/misdatos.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-inicio',
@@ -17,7 +18,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
   standalone: true,
   imports: [CodigoqrComponent, MiclaseComponent, ForoComponent, MisdatosComponent,
             IonIcon, IonButton, IonSegmentButton, IonSegment, IonFooter, IonContent, 
-            IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent]
+            IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HeaderComponent, TranslateModule]
 })
 export class InicioPage {
 
