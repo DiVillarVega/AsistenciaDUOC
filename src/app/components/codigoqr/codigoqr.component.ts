@@ -1,5 +1,5 @@
 import { AuthService } from 'src/app/services/auth.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonInput, IonButton, IonIcon, IonCard, IonLoading, IonCardContent, IonCardSubtitle, IonItem, IonCol,
   IonGrid, IonRow, IonLabel, IonItemDivider } from '@ionic/angular/standalone';
 import { Usuario } from 'src/app/model/usuario';
@@ -19,6 +19,7 @@ export class CodigoqrComponent  implements OnInit {
   @ViewChild('titulo',{ read: ElementRef }) itemTitulo!: ElementRef
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
+  @Output() qrScanSuccess = new EventEmitter<void>(); // Evento de salida
 
   public usuario: Usuario = new Usuario();
   public asistencia: Asistencia | undefined = undefined;
@@ -79,6 +80,9 @@ export class CodigoqrComponent  implements OnInit {
       this.usuario.asistencia = JSON.parse(qrCode.data);
       this.authService.guardarUsuarioAutenticado(this.usuario);  
       console.log("Asistencia:", this.usuario.asistencia);  
+
+      this.qrScanSuccess.emit(); // Emitir evento cuando se haya escaneado el QR
+
       return true;
     }
     

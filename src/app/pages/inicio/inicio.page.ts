@@ -22,7 +22,11 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class InicioPage {
 
-  selectedComponent = 'codigoqr'
+  public selectedComponent = 'codigoqr';
+
+  onQrScanSuccess() {
+    this.selectedComponent = 'miclase';
+  }
 
   constructor() { 
     addIcons({ homeOutline,schoolOutline, pencilOutline, gridOutline});
