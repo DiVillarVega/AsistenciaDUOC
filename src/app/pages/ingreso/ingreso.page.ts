@@ -49,4 +49,8 @@ export class IngresoPage{
     this.router.navigate(['/miruta']);
   }
 
+  registrarme(){
+    this.router.navigate(['/registrarme']);
+  }
+
 }

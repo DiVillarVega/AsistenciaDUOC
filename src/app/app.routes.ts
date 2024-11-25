@@ -41,5 +41,9 @@ export const routes: Routes = [
     path: 'miruta',
     loadComponent: () => import('./pages/miruta/miruta.page').then( m => m.MirutaPage)
   },
+  {
+    path: 'registrarme',
+    loadComponent: () => import('./pages/registrarme/registrarme.page').then( m => m.RegistrarmePage)
+  },
 
 ];

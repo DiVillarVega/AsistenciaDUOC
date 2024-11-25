@@ -3,9 +3,10 @@
 <ion-content [fullscreen]="true">
 
     <app-codigoqr *ngIf="selectedComponent === 'codigoqr'" (qrScanSuccess)="onQrScanSuccess()"></app-codigoqr>
-    <app-miclase *ngIf="selectedComponent === 'miclase'"></app-miclase>
+    <app-miclase *ngIf="selectedComponent === 'miclase' && !isAdmin()"></app-miclase>
     <app-foro *ngIf="selectedComponent === 'foro'"></app-foro>
     <app-misdatos *ngIf="selectedComponent === 'misdatos'"></app-misdatos>
+    <app-usuarios *ngIf="selectedComponent === 'usuarios' && isAdmin()"></app-usuarios>
     
 </ion-content>
 
@@ -14,12 +15,12 @@
 
         <ion-segment value="codigoqr" [(ngModel)]="selectedComponent" (ionChange)="segmentChange($event)">
 
-            <ion-segment-button value="codigoqr">
+            <ion-segment-button *ngIf="!isAdmin()" value="codigoqr">
                 <ion-icon name="home-outline"></ion-icon>
                 {{ 'Footer.Button.Home' | translate }}
             </ion-segment-button>
 
-            <ion-segment-button value="miclase">
+            <ion-segment-button *ngIf="!isAdmin()" value="miclase">
                 <ion-icon name="school-outline"></ion-icon>
                 {{ 'Footer.Button.MyClass' | translate }}
             </ion-segment-button>
@@ -32,6 +33,11 @@
             <ion-segment-button value="misdatos">
                 <ion-icon name="grid-outline"></ion-icon>
                 {{ 'Footer.Button.MyData' | translate }}
+            </ion-segment-button>
+
+            <ion-segment-button *ngIf="isAdmin()" value="usuarios">
+                <ion-icon name="grid-outline"></ion-icon>
+                {{ 'Footer.Button.Usuarios' | translate }}
             </ion-segment-button>
 
 

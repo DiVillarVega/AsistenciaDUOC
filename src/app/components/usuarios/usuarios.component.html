@@ -1,0 +1,22 @@
+<div class="container">
+  <ion-list>
+    <!-- Título centrado -->
+    <h5 class="titulo-centrado">{{ 'ADMINISTRAR_USUARIOS' | translate }}</h5>
+    <!-- Lista de usuarios -->
+    <ion-item *ngFor="let user of usuarios" class="user-card">
+      <div class="user-info">
+        <!-- Mostrar nombre, apellido y correo -->
+        <p class="user-name"><strong>{{ user.nombre }} {{ user.apellido }}</strong></p>
+        <p class="user-email">{{ user.correo }}</p>
+      </div>
+      <!-- Botón de eliminar si no es 'admin' -->
+      <ion-button 
+        color="danger" 
+        *ngIf="user.cuenta?.trim() !== 'admin'" 
+        (click)="eliminarUsuario(user)">
+        <ion-icon name="trash"></ion-icon>
+        {{ 'ELIMINAR' | translate }}
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</div>

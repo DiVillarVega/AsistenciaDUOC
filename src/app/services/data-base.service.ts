@@ -128,9 +128,14 @@ export class DataBaseService {
 
   // ReadAll del CRUD. Si existen registros entonces convierte los registros en una lista de usuarios
   // con la instrucción ".values as Usuario[];". Si la tabla no tiene registros devuelve null.
-  async leerUsuarios(): Promise<void> {
-    const usuarios: Usuario[]= (await this.db.query('SELECT * FROM USUARIO;')).values as Usuario[];
-    this.listaUsuarios.next(usuarios);
+  async leerUsuarios(): Promise<Usuario[]> {
+    try {
+      const respuesta = await this.db.query('SELECT * FROM USUARIO');
+      return respuesta.values as Usuario[]; // Asegúrate de que `respuesta.values` sea un arreglo
+    } catch (error) {
+      console.error('Error al leer usuarios:', error);
+      return []; // Retornar un arreglo vacío en caso de error
+    }
   }
 
   // Read del CRUD
@@ -171,5 +176,6 @@ export class DataBaseService {
       [correo])).values as Usuario[];
     return usuarios[0];
   }
+
 
 }
