@@ -3,25 +3,25 @@
   <!-- Formulario para crear/editar publicaciones -->
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Foro</ion-card-title>
+      <ion-card-title>{{ 'Forum.Title' | translate }}</ion-card-title>
       <ion-card-subtitle>{{ selectedPostText }}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
       <ion-item>
-        <ion-label position="floating" color="secondary">Título</ion-label>
+        <ion-label position="floating" color="secondary">{{ 'Forum.Publicacion' | translate }}</ion-label>
         <ion-input [(ngModel)]="post.title" placeholder="Ingresa el título de la publicación"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating" color="secondary">Descripción</ion-label>
+        <ion-label position="floating" color="secondary">{{ 'Forum.Description' | translate }}</ion-label>
         <ion-textarea [(ngModel)]="post.body" placeholder="Escribe el contenido de la publicación"></ion-textarea>
       </ion-item>
 
       <div class="ion-text-center margin-top-6">
         <ion-button color="medium" shape="round" (click)="cleanPost()">
           <ion-icon name="trash"></ion-icon>
-          Limpiar</ion-button>
+          {{ 'CLEAR' | translate }}</ion-button>
         <ion-button color="primary" shape="round" (click)="savePost()">
           <ion-icon name="save"></ion-icon>
           {{ post.id ? 'Actualizar' : 'Guardar' }}
@@ -32,13 +32,13 @@
 
   <!-- Lista de publicaciones recientes -->
   <ion-card class="sin-bordes">
-    <ion-card-title class="con-padding-top">Publicaciones Recientes</ion-card-title>
+    <ion-card-title class="con-padding-top">{{ 'Forum.Recent' | translate }}</ion-card-title>
   </ion-card>
 
   <ion-list>
     <ion-card *ngFor="let post of posts; trackBy: getPostId">
       <ion-card-header>
-        <h6>(Publicación #{{ post.id }}) {{ post.author }}</h6>
+        <h6>({{ 'Forum.Post' | translate }} #{{ post.id }}) {{ post.author }}</h6>
         <h4>{{ post.title }}</h4>
       </ion-card-header>
 
@@ -48,10 +48,10 @@
 
       <ion-item lines="none">
         <ion-button fill="clear" color="primary" (click)="editPost(post)">
-          <ion-icon slot="start" name="pencil-outline"></ion-icon>Editar
+          <ion-icon slot="start" name="pencil-outline"></ion-icon>{{ 'EDIT' | translate }}
         </ion-button>
         <ion-button fill="clear" color="danger" (click)="deletePost(post)">
-          <ion-icon slot="start" name="trash-outline"></ion-icon>Eliminar
+          <ion-icon slot="start" name="trash-outline"></ion-icon>{{ 'DELETE' | translate }}
         </ion-button>
       </ion-item>
     </ion-card>

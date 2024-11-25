@@ -14,7 +14,6 @@
             [(ngModel)]="usuario.cuenta" 
             [label]="'ACCOUNT' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
             [placeholder]="'RegisterPage.UsernamePlaceholder' | translate" 
             required>
           </ion-input>
@@ -32,7 +31,7 @@
             [(ngModel)]="usuario.correo"
             [label]="'EMAIL' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
+             
             [placeholder]="'RegisterPage.EmailPlaceholder' | translate" 
             required>
           </ion-input>
@@ -49,7 +48,7 @@
             [(ngModel)]="usuario.nombre"
             [label]="'NAME' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
+             
             [placeholder]="'RegisterPage.UsernamePlaceholder' | translate" 
             required>
           </ion-input>
@@ -66,7 +65,7 @@
             [(ngModel)]="usuario.apellido"
             [label]="'LAST_NAME' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
+             
             [placeholder]="'RegisterPage.LastNamePlaceholder' | translate" 
             required>
           </ion-input>
@@ -77,8 +76,8 @@
       <!-- Nivel Educacional -->
       <div class="form-group">
         <ion-item>
-          <ion-label position="floating" style="color: black;">{{ 'EDUCATION' | translate }}</ion-label>
-          <ion-select [(ngModel)]="usuario.nivelEducacional" (ionChange)="cambiarNivel($event)" name="nivelEducacional" style="color: black;" required>
+          <ion-label position="floating" >{{ 'EDUCATION' | translate }}</ion-label>
+          <ion-select [(ngModel)]="usuario.nivelEducacional" (ionChange)="cambiarNivel($event)" name="nivelEducacional"  required>
             <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
                 {{ nivel.nombre }}
             </ion-select-option>
@@ -109,7 +108,7 @@
             [(ngModel)]="usuario.direccion"
             [label]="'ADDRESS' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
+             
             [placeholder]="'RegisterPage.AddressPlaceholder' | translate" 
             required>
           </ion-textarea>
@@ -123,7 +122,7 @@
             [(ngModel)]="usuario.preguntaSecreta"
             [label]="'RegisterPage.SecurityQuestionLabel' | translate"
             labelPlacement="floating"
-            style="color: black;"
+            
             [placeholder]="'RegisterPage.SecurityQuestionPlaceholder' | translate"
             required>
           </ion-input>
@@ -140,7 +139,7 @@
             [(ngModel)]="usuario.respuestaSecreta"
             [label]="'RegisterPage.AnswerLabel' | translate"
             labelPlacement="floating"
-            style="color: black;"
+            
             [placeholder]="'RegisterPage.AnswerPlaceholder' | translate"
             required>
           </ion-input>
@@ -158,7 +157,7 @@
             [(ngModel)]="usuario.password"
             [label]="'PASSWORD' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
+             
             [placeholder]="'RegisterPage.PasswordPlaceholder' | translate" 
             required>
           </ion-input>
@@ -177,7 +176,7 @@
             [(ngModel)]="repeticionPassword"
             [label]="'REPEAT_PASSWORD' | translate" 
             labelPlacement="floating" 
-            style="color: black;" 
+             
             [placeholder]="'RegisterPage.ConfirmPasswordPlaceholder' | translate" 
             required>
           </ion-input>
@@ -191,7 +190,7 @@
 
     <!-- Pie de página -->
     <div class="footer">
-      <p>¿Ya tienes una cuenta? <a [routerLink]="['/ingreso']">{{ 'PasswordRecovery.GoBack' | translate }}</a></p>
+      <p>¿Ya tienes una cuenta? <a [routerLink]="['/ingreso']">{{ 'Footer.Button.BackToLogin' | translate }}</a></p>
     </div>
   </div>
 

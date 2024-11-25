@@ -9,36 +9,36 @@
 
         <!-- Campos del formulario -->
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.cuenta" label="Cuenta" labelPlacement="floating" disabled="true"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.cuenta" label="{{ 'MisDatos.Account' | translate }}" labelPlacement="floating" disabled="true"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.nombre" label="{{ 'MisDatos.Name' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.apellido" label="Apellido" labelPlacement="floating"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.apellido" label="{{ 'MisDatos.LastName' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating" disabled="true"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.correo" label="{{ 'MisDatos.Email' | translate }}" labelPlacement="floating" disabled="true"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.direccion" label="Direccion" labelPlacement="floating"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.direccion" label="{{ 'MisDatos.Address' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="Pregunta secreta" labelPlacement="floating"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="{{ 'MisDatos.Question' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta" labelPlacement="floating"></ion-input>
+            <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="{{ 'MisDatos.Answer' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <!-- Selector de Educación -->
         <ion-item>
-            <ion-label position="floating">Educación</ion-label>
+            <ion-label position="floating">{{ 'MisDatos.Education' | translate }}</ion-label>
             <ion-select [(ngModel)]="usuario.nivelEducacional.id" interface="popover" style="width: 100%;">
                 <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
                     {{ nivel.nombre }}
@@ -48,25 +48,25 @@
 
         <!-- Fecha de nacimiento -->
         <ion-item>
-            <ion-label position="floating">Fecha de Nacimiento</ion-label>
+            <ion-label position="floating">{{ 'MisDatos.BirthDate' | translate }}</ion-label>
             <br>
             <ion-datetime class="custom-datetime" presentation="date" displayFormat="DD/MM/YYYY" placeholder="dd/mm/yyyy" [preferWheel]="true">
             </ion-datetime>
         </ion-item>
 
         <ion-item>
-            <ion-input [(ngModel)]="usuario.password" type="password" label="Contraseña" labelPlacement="floating"></ion-input>
+            <ion-input [(ngModel)]="usuario.password" type="password" label="{{ 'MisDatos.Password' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input [(ngModel)]="repeticionPassword" type="password" label="Repetir contraseña" labelPlacement="floating"></ion-input>
+            <ion-input [(ngModel)]="repeticionPassword" type="password" label="{{ 'MisDatos.Password2' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <!-- Botones de acción -->
         <div>
             <div class="ion-text-center ion-padding">
                 <ion-button (click)="this.actualizarPerfil()" color="success">
-                    Guardar cambios
+                    {{ 'SAVE' | translate }}
                 </ion-button>
             </div>
             <div>

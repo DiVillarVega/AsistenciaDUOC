@@ -1,0 +1,10 @@
+ion-select {
+  --padding-start: 0; /* Ajusta el espacio de la flecha */
+}
+
+.custom-datetime {
+  width: 100%;          /* Ocupa el ancho completo */
+  max-width: 250px;     /* Limita el ancho máximo */
+  margin: auto;         /* Centra el componente */
+  padding: 10px;        /* Ajusta el espacio interno */
+}
