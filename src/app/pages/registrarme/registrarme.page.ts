@@ -17,6 +17,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';  // Import IonicModule
 import { NivelEducacional } from 'src/app/model/nivel-educacional';
 import { DataBaseService } from 'src/app/services/data-base.service';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-registrarme',
@@ -33,7 +34,8 @@ import { DataBaseService } from 'src/app/services/data-base.service';
     MatFormFieldModule,   // Importa el MatFormFieldModule
     MatInputModule,       // Importa el MatInputModule
     MatDatepickerModule,  // Importa el MatDatepickerModule
-    MatNativeDateModule,   // Add IonicModule here to provide all necessary Ionic components
+    MatNativeDateModule,
+    HeaderComponent,   // Add IonicModule here to provide all necessary Ionic components
   ],
   providers:[
     {provide: MAT_DATE_LOCALE, useValue: 'es-CL'}
@@ -46,7 +48,7 @@ export class RegistrarmePage {
   nivelId = 1;
   public listaNivelesEducacionales = NivelEducacional.getNivelesEducacionales();
 
-  constructor(private authService: AuthService, private bd: DataBaseService) {
+  constructor(private authService: AuthService, private bd: DataBaseService, private router: Router) {
     addIcons({ person, mail, lockClosed, calendar });
   }
 
@@ -77,12 +79,19 @@ export class RegistrarmePage {
     if (this.validarCampos()) {
       await this.bd.guardarUsuario(this.usuario);
       showToast('Perfil creado correctamente.');
+      this.volverIngreso();
+      
     }
   }
 
   cambiarNivel($event: any) {
     this.usuario.nivelEducacional = NivelEducacional.buscarNivelEducacional(this.nivelId)!;
   }
+
+  volverIngreso() {
+    this.router.navigate(['/ingreso']);
+  }
+
 }
 
 @NgModule({

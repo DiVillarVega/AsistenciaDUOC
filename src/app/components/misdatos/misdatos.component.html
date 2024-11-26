@@ -50,7 +50,7 @@
         <ion-item>
             <ion-label position="floating">{{ 'MisDatos.BirthDate' | translate }}</ion-label>
             <br>
-            <ion-datetime class="custom-datetime" presentation="date" displayFormat="DD/MM/YYYY" placeholder="dd/mm/yyyy" [preferWheel]="true">
+            <ion-datetime [(ngModel)]="usuario.fechaNacimiento" name="fechaNacimiento" class="custom-datetime" presentation="date" displayFormat="DD/MM/YYYY" placeholder="dd/mm/yyyy" [preferWheel]="true">
             </ion-datetime>
         </ion-item>
 

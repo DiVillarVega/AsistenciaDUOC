@@ -1,197 +1,190 @@
-<ion-content [fullscreen]="false">
-  <div class="container">
+<app-header></app-header>
+<ion-content #page [fullscreen]="true" class="ion-padding-horizontal page">
+  <ion-card class="content ion-text-center">
   
  
-  <h2>{{ 'RegisterPage.Title' | translate }}</h2>
-    <form #miFormulario="ngForm" (ngSubmit)="crearPerfil(miFormulario)">
-      
-      <!-- Nombre de Usuario -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input 
-            type="text" 
-            name="cuenta"  
-            [(ngModel)]="usuario.cuenta" 
-            [label]="'ACCOUNT' | translate" 
-            labelPlacement="floating" 
-            [placeholder]="'RegisterPage.UsernamePlaceholder' | translate" 
-            required>
-          </ion-input>
-          <ion-icon name="person" slot="end"></ion-icon>
-        </ion-item>
-      </div>
+    <h2 class="ion-text-center">{{ 'RegisterPage.Title' | translate }}</h2>
+      <form #miFormulario="ngForm" (ngSubmit)="crearPerfil(miFormulario)">
+        
+        <!-- Nombre de Usuario -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input 
+              type="text" 
+              name="cuenta"  
+              [(ngModel)]="usuario.cuenta" 
+              [label]="'ACCOUNT' | translate" 
+              labelPlacement="floating" 
+              [placeholder]="'RegisterPage.UsernamePlaceholder' | translate" 
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
 
-      <!-- Correo Electrónico -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input 
-            id="email" 
-            type="email" 
-            name="email"
-            [(ngModel)]="usuario.correo"
-            [label]="'EMAIL' | translate" 
-            labelPlacement="floating" 
-             
-            [placeholder]="'RegisterPage.EmailPlaceholder' | translate" 
-            required>
-          </ion-input>
-          <ion-icon name="mail" slot="end"></ion-icon>
-        </ion-item>
-      </div>
+        <!-- Correo Electrónico -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input 
+              id="email" 
+              type="email" 
+              name="email"
+              [(ngModel)]="usuario.correo"
+              [label]="'EMAIL' | translate" 
+              labelPlacement="floating" 
+              
+              [placeholder]="'RegisterPage.EmailPlaceholder' | translate" 
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
 
-      <!-- Nombre Completo -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input 
-            type="text" 
-            name="nombre"  
-            [(ngModel)]="usuario.nombre"
-            [label]="'NAME' | translate" 
-            labelPlacement="floating" 
-             
-            [placeholder]="'RegisterPage.UsernamePlaceholder' | translate" 
-            required>
-          </ion-input>
-          <ion-icon name="person" slot="end"></ion-icon>
-        </ion-item>
-      </div>
+        <!-- Nombre Completo -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input 
+              type="text" 
+              name="nombre"  
+              [(ngModel)]="usuario.nombre"
+              [label]="'NAME' | translate" 
+              labelPlacement="floating" 
+              
+              [placeholder]="'RegisterPage.UsernamePlaceholder' | translate" 
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
 
-      <!-- Apellido -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input 
-            type="text" 
-            name="apellido"  
-            [(ngModel)]="usuario.apellido"
-            [label]="'LAST_NAME' | translate" 
-            labelPlacement="floating" 
-             
-            [placeholder]="'RegisterPage.LastNamePlaceholder' | translate" 
-            required>
-          </ion-input>
-          <ion-icon name="person" slot="end"></ion-icon>
-        </ion-item>
-      </div>
+        <!-- Apellido -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input 
+              type="text" 
+              name="apellido"  
+              [(ngModel)]="usuario.apellido"
+              [label]="'LAST_NAME' | translate" 
+              labelPlacement="floating" 
+              
+              [placeholder]="'RegisterPage.LastNamePlaceholder' | translate" 
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
 
-      <!-- Nivel Educacional -->
-      <div class="form-group">
-        <ion-item>
-          <ion-label position="floating" >{{ 'EDUCATION' | translate }}</ion-label>
-          <ion-select [(ngModel)]="usuario.nivelEducacional" (ionChange)="cambiarNivel($event)" name="nivelEducacional"  required>
-            <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
-                {{ nivel.nombre }}
-            </ion-select-option>
-          </ion-select>
-        </ion-item>
-      </div>
-      
+        <!-- Nivel Educacional -->
+        <div class="form-group">
+          <ion-item>
+            <ion-label position="floating" >{{ 'EDUCATION' | translate }}</ion-label>
+            <ion-select [(ngModel)]="usuario.nivelEducacional" (ionChange)="cambiarNivel($event)" name="nivelEducacional"  required>
+              <ion-select-option *ngFor="let nivel of listaNivelesEducacionales" [value]="nivel.id">
+                  {{ nivel.nombre }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        
 
-      <!-- Fecha de Nacimiento -->
-      <div class="form-group">
-        <ion-item class="ion-item-datepicker">
-          <mat-form-field appearance="fill" style="width: 100%;">
-              <mat-label>{{ 'BIRTH_DATE' | translate }}</mat-label>
-              <input matInput [matDatepicker]="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento" [ngModelOptions]="{standalone: true}" name="fechaNacimiento" placeholder="dd/mm/yyyy" required>
-              <mat-datepicker-toggle matSuffix [for]="fechaNacimiento"></mat-datepicker-toggle>
-              <mat-datepicker #fechaNacimiento></mat-datepicker>
-          </mat-form-field>
-      </ion-item>
-      </div>
+        <!-- Fecha de Nacimiento -->
+        <div class="form-group">
+          <ion-item>
+            <ion-label position="floating">{{ 'MisDatos.BirthDate' | translate }}</ion-label>
+            <br>
+            <ion-datetime [(ngModel)]="usuario.fechaNacimiento" name="fechaNacimiento" class="custom-datetime" presentation="date" displayFormat="DD/MM/YYYY" placeholder="dd/mm/yyyy" [preferWheel]="true">
+            </ion-datetime>
+        </ion-item>
+        </div>
 
-      
+        
 
-      <!-- Dirección -->
-      <div class="form-group">
-        <ion-item>
-          <ion-textarea 
-            name="direccion" 
-            [(ngModel)]="usuario.direccion"
-            [label]="'ADDRESS' | translate" 
-            labelPlacement="floating" 
-             
-            [placeholder]="'RegisterPage.AddressPlaceholder' | translate" 
-            required>
-          </ion-textarea>
-        </ion-item>
-      </div>
-      <div class="form-group">
-        <ion-item>
-          <ion-input
-            type="text"
-            name="preguntaSecreta"
-            [(ngModel)]="usuario.preguntaSecreta"
-            [label]="'RegisterPage.SecurityQuestionLabel' | translate"
-            labelPlacement="floating"
-            
-            [placeholder]="'RegisterPage.SecurityQuestionPlaceholder' | translate"
-            required>
-          </ion-input>
-          <ion-icon name="help-circle" slot="end"></ion-icon>
-        </ion-item>
-      </div>
-      
-      <!-- Respuesta Secreta -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input
-            type="text"
-            name="respuestaSecreta"
-            [(ngModel)]="usuario.respuestaSecreta"
-            [label]="'RegisterPage.AnswerLabel' | translate"
-            labelPlacement="floating"
-            
-            [placeholder]="'RegisterPage.AnswerPlaceholder' | translate"
-            required>
-          </ion-input>
-          <ion-icon name="help-circle" slot="end"></ion-icon>
-        </ion-item>
-      </div>
-      
-      <!-- Contraseña -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input 
-            id="password" 
-            type="password"
-            name="password" 
-            [(ngModel)]="usuario.password"
-            [label]="'PASSWORD' | translate" 
-            labelPlacement="floating" 
-             
-            [placeholder]="'RegisterPage.PasswordPlaceholder' | translate" 
-            required>
-          </ion-input>
-          <ion-icon name="lock-closed" slot="end"></ion-icon>
-        </ion-item>
-      </div>
+        <!-- Dirección -->
+        <div class="form-group">
+          <ion-item>
+            <ion-textarea 
+              name="direccion" 
+              [(ngModel)]="usuario.direccion"
+              [label]="'ADDRESS' | translate" 
+              labelPlacement="floating" 
+              
+              [placeholder]="'RegisterPage.AddressPlaceholder' | translate" 
+              required>
+            </ion-textarea>
+          </ion-item>
+        </div>
+        <div class="form-group">
+          <ion-item>
+            <ion-input
+              type="text"
+              name="preguntaSecreta"
+              [(ngModel)]="usuario.preguntaSecreta"
+              [label]="'RegisterPage.SecurityQuestionLabel' | translate"
+              labelPlacement="floating"
+              
+              [placeholder]="'RegisterPage.SecurityQuestionPlaceholder' | translate"
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
+        
+        <!-- Respuesta Secreta -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input
+              type="text"
+              name="respuestaSecreta"
+              [(ngModel)]="usuario.respuestaSecreta"
+              [label]="'RegisterPage.AnswerLabel' | translate"
+              labelPlacement="floating"
+              
+              [placeholder]="'RegisterPage.AnswerPlaceholder' | translate"
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
+        
+        <!-- Contraseña -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input 
+              id="password" 
+              type="password"
+              name="password" 
+              [(ngModel)]="usuario.password"
+              [label]="'PASSWORD' | translate" 
+              labelPlacement="floating" 
+              
+              [placeholder]="'RegisterPage.PasswordPlaceholder' | translate" 
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
 
-      <!-- Confirmar Contraseña -->
-      <div class="form-group">
-        <ion-item>
-          <ion-input 
-            id="confirm-password" 
-            type="password"
-            name="repeticionPassword"
- 
-            [(ngModel)]="repeticionPassword"
-            [label]="'REPEAT_PASSWORD' | translate" 
-            labelPlacement="floating" 
-             
-            [placeholder]="'RegisterPage.ConfirmPasswordPlaceholder' | translate" 
-            required>
-          </ion-input>
-          <ion-icon name="lock-closed" slot="end"></ion-icon>
-        </ion-item>
-      </div>
-      
-      <!-- Botón -->
-      <ion-button expand="block" class="btn" type="submit"> {{ 'RegisterPage.RegisterButton' | translate }}</ion-button>
-    </form>
+        <!-- Confirmar Contraseña -->
+        <div class="form-group">
+          <ion-item>
+            <ion-input 
+              id="confirm-password" 
+              type="password"
+              name="repeticionPassword"
+  
+              [(ngModel)]="repeticionPassword"
+              [label]="'REPEAT_PASSWORD' | translate" 
+              labelPlacement="floating" 
+              
+              [placeholder]="'RegisterPage.ConfirmPasswordPlaceholder' | translate" 
+              required>
+            </ion-input>
+          </ion-item>
+        </div>
+        
+        <!-- Botón -->
+         <div class="ion-text-center ion-padding">
+          <ion-button  class="btn" type="submit" color="success"> {{ 'RegisterPage.RegisterButton' | translate }}</ion-button>
+        </div>
+        </form>
 
-    <!-- Pie de página -->
-    <div class="footer">
-      <p>¿Ya tienes una cuenta? <a [routerLink]="['/ingreso']">{{ 'Footer.Button.BackToLogin' | translate }}</a></p>
-    </div>
-  </div>
+      <!-- Pie de página -->
+      <div class="footer; ion-text-center">
+        <p>¿Ya tienes una cuenta? <br> <a [routerLink]="['/ingreso']">{{ 'Footer.Button.BackToLogin' | translate }}</a></p>
+      </div>
+  </ion-card>
 
 </ion-content>
