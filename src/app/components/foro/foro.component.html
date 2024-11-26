@@ -10,19 +10,19 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating" color="secondary">{{ 'Forum.Publicacion' | translate }}</ion-label>
-        <ion-input [(ngModel)]="post.title" placeholder="Ingresa el título de la publicación"></ion-input>
+        <ion-input id="titulo" [(ngModel)]="post.title" placeholder="Ingresa el título de la publicación"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating" color="secondary">{{ 'Forum.Description' | translate }}</ion-label>
-        <ion-textarea [(ngModel)]="post.body" placeholder="Escribe el contenido de la publicación"></ion-textarea>
+        <ion-textarea id="contenido" [(ngModel)]="post.body" placeholder="Escribe el contenido de la publicación"></ion-textarea>
       </ion-item>
 
       <div class="ion-text-center margin-top-6">
         <ion-button color="medium" shape="round" (click)="cleanPost()">
           <ion-icon name="trash"></ion-icon>
           {{ 'CLEAR' | translate }}</ion-button>
-        <ion-button color="primary" shape="round" (click)="savePost()">
+        <ion-button id="guardar" color="primary" shape="round" (click)="savePost()">
           <ion-icon name="save"></ion-icon>
           {{ post.id ? 'Actualizar' : 'Guardar' }}
         </ion-button>
