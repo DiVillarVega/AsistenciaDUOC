@@ -23,8 +23,8 @@ export class IngresoPage{
 
   @ViewChild('selectLanguage') selectLanguage!: LanguageComponent;
     
-  cuenta: string= 'atorres';
-  password: string= '1234';
+  cuenta: string= '';
+  password: string= '';
 
   constructor(private authService: AuthService, private router: Router) { 
     addIcons({personCircle, colorWandOutline})

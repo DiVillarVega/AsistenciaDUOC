@@ -1,3 +1,4 @@
+import { IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,12 +15,7 @@ import { AnimationController } from '@ionic/angular';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [
-      CommonModule    // CGV-Permite usar directivas comunes de Angular
-    , FormsModule     // CGV-Permite usar formularios
-    , IonicModule     // CGV-Permite usar componentes de Ionic como IonContent, IonItem, etc.
-    , TranslateModule // CGV-Permite usar pipe 'translate'
-  ]
+  imports: [IonHeader, IonToolbar, IonTitle]
 })
 export class HeaderComponent implements AfterViewInit {
 

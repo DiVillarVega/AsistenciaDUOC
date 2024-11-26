@@ -93,6 +93,17 @@ export class DataBaseService {
       NivelEducacional.buscarNivelEducacional(6)!,
       new Date(2000, 2, 20),
       'Santiago'));
+      await this.guardarUsuario(Usuario.getNewUsuario(
+        'admin', 
+        'admin@duocuc.cl', 
+        '1234', 
+        '¿Cuál es tu vehículo favorito?',
+        'moto',
+        'Admin', 
+        '', 
+        NivelEducacional.buscarNivelEducacional(6)!,
+        new Date(2000, 2, 20),
+        'Santiago'));
   }
 
   // Create y Update del CRUD. La creación y actualización de un usuario

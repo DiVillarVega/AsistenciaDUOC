@@ -1,19 +1,8 @@
 describe('Verificar mi aplicación', () => {
-  
-  it('verificar login con credenciales correctas', () => {
-    cy.intercept('GET', '/inicio', { statusCode: 404 });
-    cy.visit('http://localhost:8100/ingreso').then(() => {;
-      cy.get('#cuenta').invoke('val', 'jperez');
-      cy.get('#password').invoke('val', '5678');
-      cy.contains('Ingresar').click();
-      cy.intercept('/inicio').as('route').then(() => {
-        // cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc');
-        cy.get('#barra').should('contain.text', 'foro');
-        cy.get('#salir').click();
-      });
-    });
-  });
 
+  beforeEach(() =>{
+    cy.viewport(435, 865);
+  })
 
   it('verificar login con credenciales incorrectas', () => {
     cy.intercept('GET', '/inicio', { statusCode: 404 });
@@ -23,10 +12,26 @@ describe('Verificar mi aplicación', () => {
       cy.contains('Ingresar').click();
       cy.intercept('/inicio').as('route').then(() => {
         // cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc');
-        cy.get('#saludo').should('contain.text', 'Bienvenido(a) Ana Torres')
+        cy.get('#cuenta').should('contain.text', 'Cuenta')
       });
     });
   });
+
+  it('verificar login con credenciales correctas', () => {
+    cy.visit('http://localhost:8100/ingreso').then(() => {;
+      cy.get('#cuenta').type('atorres');
+      cy.get('#password').type('1234');
+      cy.contains('Ingresar').click();
+      cy.intercept('/inicio').as('route').then(() => {
+        // cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc');
+        cy.get('#misdatos').click();
+        cy.get('#salir').click();
+      });
+    });
+  });
+
+
+
 
 
 

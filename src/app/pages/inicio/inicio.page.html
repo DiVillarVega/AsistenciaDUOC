@@ -7,7 +7,7 @@
     <app-foro *ngIf="selectedComponent === 'foro'"></app-foro>
     <app-misdatos *ngIf="selectedComponent === 'misdatos'"></app-misdatos>
     <app-usuarios *ngIf="selectedComponent === 'usuarios' && isAdmin()"></app-usuarios>
-    
+
 </ion-content>
 
 <ion-footer>
@@ -30,7 +30,7 @@
                 {{ 'Footer.Button.Forum' | translate }}
             </ion-segment-button>
 
-            <ion-segment-button value="misdatos">
+            <ion-segment-button id="misdatos" value="misdatos">
                 <ion-icon name="grid-outline"></ion-icon>
                 {{ 'Footer.Button.MyData' | translate }}
             </ion-segment-button>

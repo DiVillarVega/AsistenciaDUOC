@@ -17,10 +17,10 @@
     "Login.Button.DarkMode": "Oscuro",
     "Login.Button.Registro": "Registrarse",
 
-    "RegisterPage.SecurityQuestionLabel":"Pregunta secreta",
-    "RegisterPage.AnswerLabel":"Respuesta secreta",
-    "RegisterPage.SecurityQuestionPlaceholder":"Ingrese Pregunta secreta",
-    "RegisterPage.AnswerPlaceholder":"Ingrese Respuesta secreta",
+    "RegisterPage.SecurityQuestionLabel": "Pregunta secreta",
+    "RegisterPage.AnswerLabel": "Respuesta secreta",
+    "RegisterPage.SecurityQuestionPlaceholder": "Ingrese Pregunta secreta",
+    "RegisterPage.AnswerPlaceholder": "Ingrese Respuesta secreta",
     "Login.Button.Register": "Registrarme",
     "RegisterPage.Title": "Registrarme",
     "RegisterPage.CreateAccount": "Crear Cuenta",
@@ -43,7 +43,7 @@
     "RegisterPage.RegisterButton": "Registrarse",
     "RegisterPage.GoBackToLogin": "¿Ya tienes una cuenta? Iniciar sesión",
     "RegisterPage.FooterText": "¿Ya tienes una cuenta? <a [routerLink]=\"['/ingreso']\">Iniciar sesión</a>",
-    
+
     "Footer.Button.MyCampus": "Mi sede Duoc",
     "Footer.Button.MyLocation": "Mi ubicación",
     "Footer.Button.CalculateRoute": "Calcular Ruta",
@@ -53,6 +53,7 @@
     "Footer.Button.MyClass": "Mi Clase",
     "Footer.Button.Forum": "Foro",
     "Footer.Button.MyData": "Mis Datos",
+    "Footer.Button.Usuarios": "Usuarios",
 
     "QR.Message.Welcome": "Bienvenido(a)",
     "QR.Message.Asistencia": "Registra tu asistencia a clases",
@@ -112,7 +113,7 @@
     "ThemePage.Color.Facebook": "Facebook",
     "ThemePage.Color.Instagram": "Instagram",
     "ThemePage.Color.Duoc": "DUOC",
-    
+
     "ThemePage.Button.Primary": "Botón Primario",
     "ThemePage.Button.Secondary": "Botón Secundario",
     "ThemePage.Button.Tertiary": "Botón Terciario",
@@ -123,18 +124,18 @@
     "ThemePage.Button.Dark": "Botón Oscuro",
     "ThemePage.Button.Home": "Inicio",
     "ThemePage.Button.Logout": "Salir",
-    
+
     "ThemePage.Card.Title": "Título de la Tarjeta",
     "ThemePage.Card.Subtitle": "Subtítulo de la Tarjeta",
     "ThemePage.Card.Content": "Este es el contenido de la tarjeta. Puedes personalizar los colores de la tarjeta y su contenido.",
-    
+
     "ThemePage.List.Title": "Listas",
     "ThemePage.List.Item1": "Elemento de Lista 1",
     "ThemePage.List.Item2": "Elemento de Lista 2",
     "ThemePage.List.Item3": "Elemento de Lista 3",
-    
+
     "ThemePage.Calendar.Title": "Calendarios",
-    
+
     "ThemePage.Form.Title": "Ingreso de datos",
     "ThemePage.Form.NameLabel": "Nombre",
     "ThemePage.Form.NamePlaceholder": "Ingresa tu nombre",

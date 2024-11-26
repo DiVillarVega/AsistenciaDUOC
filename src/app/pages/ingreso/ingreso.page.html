@@ -1,17 +1,17 @@
 <app-header></app-header>
 
 <ion-content [fullscreen]="true">
-  <ion-toolbar class="transparent-bg">
-    <div slot="start" class="ion-margin">
-      <app-language #selectLanguage></app-language>
-    </div>
-    <div slot="end" class="ion-margin">
-      <ion-button shape="round" size="small" (click)="navigateTheme()">
-        {{ 'Login.Title.Theme' | translate }}
-        <ion-icon slot="start" name="color-wand-outline"></ion-icon>
-      </ion-button>
-    </div>
-   </ion-toolbar>  
+    <ion-toolbar class="transparent-bg">
+        <div slot="start" class="ion-margin">
+            <app-language #selectLanguage></app-language>
+        </div>
+        <div slot="end" class="ion-margin">
+            <ion-button shape="round" size="small" (click)="navigateTheme()">
+                {{ 'Login.Title.Theme' | translate }}
+                <ion-icon slot="start" name="color-wand-outline"></ion-icon>
+            </ion-button>
+        </div>
+    </ion-toolbar>
     <ion-title class="text-with-background ion-text-center">{{ 'AppName' | translate }}</ion-title>
 
     <div>
@@ -24,35 +24,33 @@
                         <br>
                         <ion-card-subtitle color="black">{{ 'Login.Title.Login' | translate }}</ion-card-subtitle>
                         <br>
-                      </div>
-                      
-                      <ion-item>
-                        <ion-input id="cuenta"
-                        label="{{ 'Login.Label.Cuenta' | translate }}" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
-                      </ion-item>
-                      <ion-item>
-                        <ion-input id="password"
-                        type="password" label="{{ 'Login.Label.Password' | translate }}" labelPlacement="floating" [(ngModel)]="password"></ion-input>
-                      </ion-item>
-                      <ion-grid>
+                    </div>
+
+                    <ion-item>
+                        <ion-input id="cuenta" label="{{ 'Login.Label.Cuenta' | translate }}" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input id="password" type="password" label="{{ 'Login.Label.Password' | translate }}" labelPlacement="floating" [(ngModel)]="password"></ion-input>
+                    </ion-item>
+                    <ion-grid>
                         <ion-row>
-                          <ion-col class="centrar">
-                            <ion-button shape="round" size="medium" (click)="ingresar()">
-                              <ion-icon name="person-circle"></ion-icon>
-                              {{ 'Login.Button.Login' | translate }}
-                            </ion-button>
-                          </ion-col>
+                            <ion-col class="centrar">
+                                <ion-button id="ingresar" shape="round" size="medium" (click)="ingresar()">
+                                    <ion-icon name="person-circle"></ion-icon>
+                                    {{ 'Login.Button.Login' | translate }}
+                                </ion-button>
+                            </ion-col>
                         </ion-row>
                         <ion-label class="centrar">
-                         <u> <a (click)="recuperarContrasena()">{{ 'Login.Button.ForgotPassword' | translate }}</a></u>
+                            <u> <a (click)="recuperarContrasena()">{{ 'Login.Button.ForgotPassword' | translate }}</a></u>
                         </ion-label>
                         <ion-label class="centrar">
-                          <u> <a (click)="registrarme()">{{ 'Login.Button.Registro' | translate }}</a></u>
-                         </ion-label>
-                        <ion-label class="centrar">
-                          <u><a (click)="ruta()">{{ 'Login.Button.gps' | translate }}</a></u>
+                            <u> <a (click)="registrarme()">{{ 'Login.Button.Registro' | translate }}</a></u>
                         </ion-label>
-                      </ion-grid>
+                        <ion-label class="centrar">
+                            <u><a (click)="ruta()">{{ 'Login.Button.gps' | translate }}</a></u>
+                        </ion-label>
+                    </ion-grid>
                 </ion-card-content>
             </ion-card>
         </div>
