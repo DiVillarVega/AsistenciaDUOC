@@ -65,6 +65,7 @@ export class MisdatosComponent {
     if(!this.validarCampo('Nombre', this.usuario.nombre)) return;
     if(!this.validarCampo('Apellido', this.usuario.apellido)) return;
     if(!this.validarCampo('Correo', this.usuario.correo)) return;
+    if(!this.validarCampo('Direccion', this.usuario.direccion)) return;
     if(!this.validarCampo('Pregunta secreta', this.usuario.preguntaSecreta)) return;
     if(!this.validarCampo('Respuesta secreta', this.usuario.respuestaSecreta)) return;
     if(!this.validarCampo('Nivel educacional', this.usuario.nivelEducacional.id.toString())) return;

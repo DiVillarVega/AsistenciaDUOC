@@ -27,10 +27,12 @@
                       </div>
                       
                       <ion-item>
-                        <ion-input label="{{ 'Login.Label.Cuenta' | translate }}" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
+                        <ion-input id="cuenta"
+                        label="{{ 'Login.Label.Cuenta' | translate }}" labelPlacement="floating" [(ngModel)]="cuenta"></ion-input>
                       </ion-item>
                       <ion-item>
-                        <ion-input type="password" label="{{ 'Login.Label.Password' | translate }}" labelPlacement="floating" [(ngModel)]="password"></ion-input>
+                        <ion-input id="password"
+                        type="password" label="{{ 'Login.Label.Password' | translate }}" labelPlacement="floating" [(ngModel)]="password"></ion-input>
                       </ion-item>
                       <ion-grid>
                         <ion-row>
