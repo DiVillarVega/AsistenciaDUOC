@@ -1,4 +1,4 @@
-
+<app-header *ngIf="selectedComponent !== 'misdatos'" (headerClick)="headerClick($event)"></app-header>
 
 <ion-content [fullscreen]="true">
 
@@ -16,7 +16,7 @@
 
         <ion-segment value="codigoqr" [(ngModel)]="selectedComponent" (ionChange)="segmentChange($event)">
 
-            <ion-segment-button *ngIf="!isAdmin()" value="codigoqr">
+            <ion-segment-button id="codigoqr" *ngIf="!isAdmin()" value="codigoqr">
                 <ion-icon name="home-outline"></ion-icon>
                 {{ 'Footer.Button.Home' | translate }}
             </ion-segment-button>
