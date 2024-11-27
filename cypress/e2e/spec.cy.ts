@@ -51,7 +51,7 @@ describe('Verificar mi aplicación', () => {
     });
   });
 
-  it('verificar agregar publicación', () => {
+  it('verificar eliminar publicación', () => {
     cy.visit('http://localhost:8100/ingreso').then(() => {;
       cy.get('#cuenta').type('atorres');
       cy.get('#password').type('1234');
@@ -146,7 +146,7 @@ describe('Verificar mi aplicación', () => {
       cy.get('#password').type('1234');
       cy.contains('Ingresar').click();
       cy.intercept('/inicio').as('route').then(() => {
-        cy.get('#misdatos').click()
+        cy.get('#misdatos').click();
         cy.contains(`Anaa`).should('exist');
         cy.wait(3000);
         cy.get('#salir').click();
