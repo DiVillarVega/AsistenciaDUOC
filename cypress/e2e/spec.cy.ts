@@ -1,5 +1,7 @@
 describe('Verificar mi aplicación', () => {
 
+  const numero = Math.floor(Math.random() * 1000000) + 1;
+
   beforeEach(() =>{
     cy.viewport(435, 865);
   })
@@ -65,5 +67,27 @@ describe('Verificar mi aplicación', () => {
       });
     });
   });
+
+  // it('verificar actualizar con misdatos', () => {
+  //   cy.visit('http://localhost:8100/ingreso').then(() => {;
+  //     cy.get('#cuenta').type('atorres');
+  //     cy.get('#password').type('1234');
+  //     cy.contains('Ingresar').click();
+  //     cy.intercept('/inicio').as('route').then(() => {
+  //       cy.get('#misdatos').click()
+  //       cy.get('#nombre').type(`Act: ${numero}`);
+  //       cy.get('#salir').click();
+  //     });
+  //     cy.get('#cuenta').type('atorres');
+  //     cy.get('#password').type('1234');
+  //     cy.contains('Ingresar').click();
+  //     cy.intercept('/inicio').as('route').then(() => {
+  //       cy.get('#misdatos').click()
+  //       cy.contains(`Act: ${numero}`).should('exist');
+  //       cy.wait(3000);
+  //       cy.get('#salir').click();
+  //     });
+  //   });
+  // });
 
 });
