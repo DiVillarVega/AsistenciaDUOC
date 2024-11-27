@@ -41,13 +41,25 @@ describe('Verificar mi aplicación', () => {
         cy.get('#titulo').type('Publicación de prueba');
         cy.get('#contenido').type('Contenido de prueba');
         cy.get('#guardar').click();
+        cy.get('#misdatos').click();
+        cy.get('#salir').click();
       });
     });
   });
 
-
-
-
-
+  it('verificar agregar publicación', () => {
+    cy.visit('http://localhost:8100/ingreso').then(() => {;
+      cy.get('#cuenta').type('atorres');
+      cy.get('#password').type('1234');
+      cy.contains('Ingresar').click();
+      cy.intercept('/inicio').as('route').then(() => {
+        // cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc');
+        cy.get('#foro').click()
+        cy.get('#eliminar').click();
+        cy.get('#misdatos').click();
+        cy.get('#salir').click();
+      });
+    });
+  });
 
 });
