@@ -41,6 +41,8 @@ describe('Verificar mi aplicación', () => {
         cy.get('#titulo').type('Publicación de prueba');
         cy.get('#contenido').type('Contenido de prueba');
         cy.get('#guardar').click();
+        cy.wait(3000);
+        cy.contains(`Publicación de prueba`).should('exist');
         cy.get('#misdatos').click();
         cy.get('#salir').click();
       });
@@ -56,6 +58,8 @@ describe('Verificar mi aplicación', () => {
         // cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc');
         cy.get('#foro').click()
         cy.get('#eliminar').click();
+        cy.wait(3000);
+        cy.contains(`Publicación de prueba`).should('not.exist');
         cy.get('#misdatos').click();
         cy.get('#salir').click();
       });
