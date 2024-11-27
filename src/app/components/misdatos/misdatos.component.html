@@ -4,7 +4,7 @@
 
         <!-- Título de bienvenida y datos personales -->
         <div class="ion-padding-top">
-            <h1 class="ion-text-center">¡{{ 'QR.Message.Welcome' | translate }} {{ usuario.nombre }} {{ usuario.apellido }}!</h1>
+
             <h4 class="ion-text-center">{{ 'MisDatos.Title' | translate }}</h4>
         </div>
 
@@ -18,7 +18,7 @@
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.apellido" label="{{ 'MisDatos.LastName' | translate }}" labelPlacement="floating"></ion-input>
+            <ion-input id="apellido" type="text" [(ngModel)]="usuario.apellido" label="{{ 'MisDatos.LastName' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -26,15 +26,15 @@
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.direccion" label="{{ 'MisDatos.Address' | translate }}" labelPlacement="floating"></ion-input>
+            <ion-input id="direccion" type="text" [(ngModel)]="usuario.direccion" label="{{ 'MisDatos.Address' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.preguntaSecreta" label="{{ 'MisDatos.Question' | translate }}" labelPlacement="floating"></ion-input>
+            <ion-input id="preguntaSecreta" type="text" [(ngModel)]="usuario.preguntaSecreta" label="{{ 'MisDatos.Question' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="{{ 'MisDatos.Answer' | translate }}" labelPlacement="floating"></ion-input>
+            <ion-input id="respuestaSecreta" type="text" [(ngModel)]="usuario.respuestaSecreta" label="{{ 'MisDatos.Answer' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <!-- Selector de Educación -->
@@ -56,11 +56,11 @@
         </ion-item>
 
         <ion-item>
-            <ion-input [(ngModel)]="usuario.password" type="password" label="{{ 'MisDatos.Password' | translate }}" labelPlacement="floating"></ion-input>
+            <ion-input id="password1" [(ngModel)]="usuario.password" type="password" label="{{ 'MisDatos.Password' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input [(ngModel)]="repeticionPassword" type="password" label="{{ 'MisDatos.Password2' | translate }}" labelPlacement="floating"></ion-input>
+            <ion-input id="password2" [(ngModel)]="repeticionPassword" type="password" label="{{ 'MisDatos.Password2' | translate }}" labelPlacement="floating"></ion-input>
         </ion-item>
 
         <!-- Botones de acción -->

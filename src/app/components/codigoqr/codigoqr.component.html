@@ -8,16 +8,21 @@
           {{ usuario.nombre }} 
           {{ usuario.apellido }}!
         </h1>
-        <h4 *ngIf="!usuario.asistencia"> {{ 'QR.Message.Asistencia' | translate }} </h4>
-        <h4 *ngIf="usuario.asistencia"> {{ 'QR.Message.Presente' | translate }} </h4>
       </ion-label>
     </ion-title>
   </div>
-  <div>
-    <div class="enmarcar">
-      <video #video [hidden]="!escaneando" style="width: 100%"></video>
-      <canvas #canvas hidden></canvas>
+  <div class="ion-text-center contenedor-principal">
+    <!-- Botón de Detener Escaneo -->
+
+    <!-- Contenedor del Video con efectos -->
+    <div class="frame">
+        <video class="video" #video></video>
+        <div class="qr-overlay"></div>
+        <div class="moving-horizontal-line"></div>
     </div>
-  </div>
+
+    <!-- Canvas oculto para el escaneo QR -->
+    <canvas #canvas hidden></canvas>
+</div>
 
 </ion-content>

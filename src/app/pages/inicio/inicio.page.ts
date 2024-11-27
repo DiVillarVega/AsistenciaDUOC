@@ -14,6 +14,9 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { Usuario } from 'src/app/model/usuario';
 import { AuthService } from 'src/app/services/auth.service';
+import { Capacitor } from '@capacitor/core';
+import { ScannerService } from 'src/app/services/scanner.service';
+import { Asistencia } from 'src/app/model/asistencia';
 
 @Component({
   selector: 'app-inicio',
@@ -33,7 +36,7 @@ export class InicioPage {
     this.selectedComponent = 'miclase';
   }
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService, private scanner: ScannerService) { 
     addIcons({ homeOutline, schoolOutline, pencilOutline, gridOutline });
 
     this.authService.usuarioAutenticado.subscribe(usuario => {
@@ -48,9 +51,40 @@ export class InicioPage {
 
   }
 
-  segmentChange($event: any){
+  async headerClick(button: string) {
+    if (button === 'scan' && Capacitor.getPlatform() === 'web') {
+      if (!this.isAdmin()) { // Solo cambiar si el usuario no es admin
+        this.selectedComponent = 'codigoqr';
+      }
+    } else if (button === 'scan' && Capacitor.getPlatform() !== 'web') {
+      if (!this.isAdmin()) { // Solo escanear si el usuario no es admin
+        this.mostrarAsistencia(await this.scanner.scan());
+      }
+    }
+  }
+  
+  webQrScanned(qr: string) {
+    this.mostrarAsistencia(qr);
+    this.selectedComponent = 'miclase';  // Cambiar a 'miclase' después de escanear el QR
+  }
+
+  webQrStopped() {
+    this.mostrarAsistencia('codigoqr');
+  }
+
+  mostrarAsistencia(qr: string) {
+    if (Asistencia.codigoQrValido(qr)) {
+      this.authService.qrCodeData.next(qr);
+      this.selectedComponent = 'miclase';  // Mostrar la clase una vez que el QR es válido
+    } else {
+      this.selectedComponent = 'codigoqr'; // Volver a mostrar el escáner si no es válido
+    }
+  }
+
+  segmentChange($event: CustomEvent) {
     this.selectedComponent = $event.detail.value; 
   }
+
 
     // Método para verificar si el usuario autenticado es 'admin'
   isAdmin(): boolean {

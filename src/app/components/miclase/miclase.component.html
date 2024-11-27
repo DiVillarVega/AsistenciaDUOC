@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <ion-card *ngIf="usuario?.asistencia; else noUsuarioTemplate">
+  <ion-card *ngIf="clase; else noUsuarioTemplate">
     <ion-card-header>
       <h1 class="titulo_datos">{{ 'MiClase.Title' | translate }}</h1>
     </ion-card-header>
@@ -8,43 +8,43 @@
       <table class="asignatura-table">
         <tr>
           <td><strong>Sede:</strong></td>
-          <td>{{ usuario.asistencia!.sede }}</td>
+          <td>{{ clase.sede }}</td>
         </tr>
         <tr>
           <td><strong>Sigla:</strong></td>
-          <td>{{ usuario.asistencia!.idAsignatura }}</td>
+          <td>{{  clase.idAsignatura }}</td>
         </tr>
         <tr>
           <td><strong>Sección:</strong></td>
-          <td>{{ usuario.asistencia!.seccion }}</td>
+          <td>{{ clase.seccion }}</td>
         </tr>
         <tr>
           <td><strong>Nombre asignatura:</strong></td>
-          <td>{{ usuario.asistencia!.nombreAsignatura }}</td>
+          <td>{{ clase.nombreAsignatura }}</td>
         </tr>
         <tr>
           <td><strong>Nombre profesor:</strong></td>
-          <td>{{ usuario.asistencia!.nombreProfesor }}</td>
+          <td>{{ clase.nombreProfesor }}</td>
         </tr>
         <tr>
           <td><strong>Día:</strong></td>
-          <td>{{ usuario.asistencia!.dia }}</td>
+          <td>{{ clase.dia }}</td>
         </tr>
         <tr>
           <td><strong>Bloque Inicio:</strong></td>
-          <td>{{ usuario.asistencia!.bloqueInicio }}</td>
+          <td>{{ clase.bloqueInicio }}</td>
         </tr>
         <tr>
           <td><strong>Bloque Término:</strong></td>
-          <td>{{ usuario.asistencia!.bloqueTermino }}</td>
+          <td>{{ clase.bloqueTermino }}</td>
         </tr>
         <tr>
           <td><strong>Hora Inicio:</strong></td>
-          <td>{{ usuario.asistencia!.horaInicio }}</td>
+          <td>{{ clase.horaInicio }}</td>
         </tr>
         <tr>
           <td><strong>Hora Fin:</strong></td>
-          <td>{{ usuario.asistencia!.horaFin }}</td>
+          <td>{{ clase.horaFin }}</td>
         </tr>
       </table>
     </ion-card-content>

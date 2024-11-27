@@ -1,10 +1,11 @@
 import { AuthService } from 'src/app/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario';
 import { IonContent, IonCard, IonCardHeader, IonCardContent } from "@ionic/angular/standalone";
 import { Asistencia } from 'src/app/interfaces/asistencia';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-miclase',
@@ -13,17 +14,20 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [IonContent,IonCard,IonCardHeader,IonCardContent, CommonModule, TranslateModule],
 })
-export class MiclaseComponent {
-  public usuario: Usuario = new Usuario();
-  public asistencia: Asistencia | undefined;
+export class MiclaseComponent implements OnDestroy {
+  clase: any;
+  private subscription: Subscription;
 
-  constructor(private authService: AuthService) {
-    this.authService.usuarioAutenticado.subscribe((usuarioAutenticado)=>{
-      if(usuarioAutenticado){
-        this.usuario=usuarioAutenticado;
-      }
-    });
-   }
+  constructor( private authService: AuthService) 
+  { 
+    this.subscription = this.authService.qrCodeData.subscribe((qr) =>{
+      this.clase = qr? JSON.parse(qr): null;
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 
 }

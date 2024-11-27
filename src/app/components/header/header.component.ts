@@ -1,6 +1,6 @@
 import { IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
@@ -20,9 +20,14 @@ import { AnimationController } from '@ionic/angular';
 export class HeaderComponent implements AfterViewInit {
 
   @ViewChild('titulo',{ read: ElementRef }) itemTitulo!: ElementRef
+  @Output() headerClick = new EventEmitter<string>();
 
   constructor(private navCtrl: NavController, private authService: AuthService, private animationController: AnimationController) { 
     addIcons({ logOutOutline });
+  }
+
+  sendClickEvent(buttonName: string) {
+    this.headerClick.emit(buttonName);
   }
 
   logout() {

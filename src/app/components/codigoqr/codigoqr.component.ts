@@ -13,86 +13,88 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './codigoqr.component.html',
   styleUrls: ['./codigoqr.component.scss'],
   standalone: true,
-  imports: [IonContent, IonLabel, IonTitle, CommonModule, TranslateModule]
+  imports: [IonContent, IonLabel, IonTitle, CommonModule, TranslateModule, IonButton]
 })
-export class CodigoqrComponent  implements OnInit {
-  @ViewChild('titulo',{ read: ElementRef }) itemTitulo!: ElementRef
+export class CodigoqrComponent {
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
-  @Output() qrScanSuccess = new EventEmitter<void>(); // Evento de salida
+  @Output() scanned: EventEmitter<string> = new EventEmitter<string>();
+  @Output() stopped: EventEmitter<void> = new EventEmitter<void>();
 
   public usuario: Usuario = new Usuario();
-  public asistencia: Asistencia | undefined = undefined;
-  public escaneando = false;
-  public datosQR: string = '';
-
+  qrData: string = '';
+  mediaStream: MediaStream | null = null;
 
   constructor(private authService: AuthService) {
-    this.authService.usuarioAutenticado.subscribe((usuarioAutenticado)=>{
-      if(usuarioAutenticado){
-        this.usuario=usuarioAutenticado;
+    this.authService.usuarioAutenticado.subscribe((usuarioAutenticado) => {
+      if (usuarioAutenticado) {
+        this.usuario = usuarioAutenticado;
+        this.comenzarEscaneoWeb();
       }
     });
-
-  }
-  ngOnInit() {
-    if (!this.usuario.asistencia) {
-      this.comenzarEscaneoQR();
-    } else {
-      console.log("Asistencia ya almacenada:", this.usuario.asistencia);
-    }
   }
 
-  public async comenzarEscaneoQR() {
-    const mediaProvider: MediaProvider = await navigator.mediaDevices.getUserMedia({
-      video: {facingMode: 'environment'}
+  // Comienza el escaneo desde la cámara
+  async comenzarEscaneoWeb() {
+    this.mediaStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'environment' }
     });
-    this.video.nativeElement.srcObject = mediaProvider;
+    this.video.nativeElement.srcObject = this.mediaStream;
     this.video.nativeElement.setAttribute('playsinline', 'true');
     this.video.nativeElement.play();
-    this.escaneando = true;
     requestAnimationFrame(this.verificarVideo.bind(this));
   }
 
+  // Verifica continuamente si el video tiene datos y si se ha escaneado un QR
   async verificarVideo() {
     if (this.video.nativeElement.readyState === this.video.nativeElement.HAVE_ENOUGH_DATA) {
-      if (this.obtenerDatosQR() || !this.escaneando) return;
-      requestAnimationFrame(this.verificarVideo.bind(this));
+      if (this.obtenerDatosQR()) {
+        return;  // Si se obtiene el QR, detiene el ciclo de verificación
+      }
+      requestAnimationFrame(this.verificarVideo.bind(this));  // Continúa verificando si no se ha escaneado
     } else {
-      requestAnimationFrame(this.verificarVideo.bind(this));
+      requestAnimationFrame(this.verificarVideo.bind(this));  // Sigue verificando si el video no tiene suficientes datos
     }
   }
 
-  public obtenerDatosQR(): boolean {
+  // Obtiene los datos del QR escaneado y detiene el escaneo
+  obtenerDatosQR(): boolean {
     const w: number = this.video.nativeElement.videoWidth;
     const h: number = this.video.nativeElement.videoHeight;
     this.canvas.nativeElement.width = w;
     this.canvas.nativeElement.height = h;
-    const context = this.canvas.nativeElement.getContext('2d', { willReadFrequently: true });
+    const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d');
     context.drawImage(this.video.nativeElement, 0, 0, w, h);
-    const img = context.getImageData(0, 0, w, h);
-    let qrCode = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
-    
-    if (qrCode && qrCode.data !== '') {
-      console.log("QR Data:", qrCode.data);
-      
-      this.escaneando = false;
-      this.usuario.asistencia = JSON.parse(qrCode.data);
-      this.authService.guardarUsuarioAutenticado(this.usuario);  
-      console.log("Asistencia:", this.usuario.asistencia);  
+    const img: ImageData = context.getImageData(0, 0, w, h);
+    let qrCode: QRCode | null = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
 
-      this.qrScanSuccess.emit(); // Emitir evento cuando se haya escaneado el QR
-
-      return true;
+    if (qrCode) {
+      const data = qrCode.data;
+      if (data !== '') {
+        this.detenerCamara();  // Detener la cámara después de escanear
+        this.scanned.emit(qrCode.data);  // Emitir el resultado del escaneo
+        return true;  // Detener el ciclo de verificación
+      }
     }
-    
-    return false;
+    return false;  // Si no se obtiene un QR válido, continúa verificando
   }
-  
+
+  // Método para detener el escaneo y emitir que se ha detenido
   public detenerEscaneoQR(): void {
-    this.escaneando = false;
+    this.detenerCamara();
+    this.stopped.emit();  // Emitir evento de detención
   }
-  
 
+  // Limpiar recursos cuando el componente se destruye
+  ngOnDestroy() {
+    this.detenerCamara();
+  }
+
+  // Detener la cámara
+  detenerCamara() {
+    if (this.mediaStream) {
+      this.mediaStream.getTracks().forEach(track => track.stop());
+      this.mediaStream = null;
+    }
+  }
 }
-
