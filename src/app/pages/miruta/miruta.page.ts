@@ -7,7 +7,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import * as L from 'leaflet'; // Importamos Leaflet
 import { HttpClient } from '@angular/common/http';
-import { GeolocationService } from 'src/app/services/geolocation.service';
+import { GeolocationService } from 'src/app/services/geolocation-service.service';
 import { Router } from '@angular/router';
 
 @Component({
