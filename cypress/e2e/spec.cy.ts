@@ -83,7 +83,7 @@ describe('Verificar mi aplicación', () => {
         cy.get('#guardar').click();
         cy.contains('Debe ingresar un valor para el campo "Nombre"').should('exist');
         cy.get('ion-alert button').should('exist').contains('Aceptar').click();
-        cy.get('#nombre').type('Anaa');
+        cy.get('#nombre').type(`Anaa`);
 
         //VALIDAR APELLIDO
         cy.get('#apellido').invoke('val', ' ');
@@ -146,9 +146,10 @@ describe('Verificar mi aplicación', () => {
       cy.get('#password').type('1234');
       cy.contains('Ingresar').click();
       cy.intercept('/inicio').as('route').then(() => {
-        cy.get('#misdatos').click();
-        cy.contains(`Anaa`).should('exist');
+        cy.get('#codigoqr').click();
+        cy.contains('Anaa').should('exist');
         cy.wait(3000);
+        cy.get('#misdatos').click();
         cy.get('#salir').click();
       });
     });
