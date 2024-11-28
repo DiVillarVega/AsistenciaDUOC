@@ -1,4 +1,4 @@
-from flask import Fask, render_template, redirect
+from flask import Flask, render_template, redirect
 
 ip_servidor = "192.168.124.36"
 url_servidor = "http://" + ip_servidor + ":5000"
