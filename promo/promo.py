@@ -19,7 +19,7 @@ def pc():
 
 @app.route('/apk')
 def apk():
-    return redirect('static/apk/app-debug-androidTest.apk')
+    return redirect('static/apk/app-release.apk')
 
 if __name__ == '__main__':
     app.run(debug=True, host=ip_servidor, port=5000)
