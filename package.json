@@ -41,6 +41,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@types/leaflet": "^1.9.12",
+    "flask": "^0.2.10",
     "ionicons": "^7.4.0",
     "jeep-sqlite": "^2.8.0",
     "jsqr": "^1.4.0",
