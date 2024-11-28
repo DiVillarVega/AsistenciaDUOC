@@ -1,6 +1,6 @@
-from flask import Fask, render_template, redirect
+from flask import Flask, render_template, redirect
 
-ip_servidor = "192.168.124.36"
+ip_servidor = "192.168.124.60"
 url_servidor = "http://" + ip_servidor + ":5000"
 
 app = Flask(__name__)
@@ -19,7 +19,7 @@ def pc():
 
 @app.route('/apk')
 def apk():
-    return redirect('static/apk/app-release.apk')
+    return redirect('static/apk/app-debug-androidTest.apk')
 
 if __name__ == '__main__':
     app.run(debug=True, host=ip_servidor, port=5000)
