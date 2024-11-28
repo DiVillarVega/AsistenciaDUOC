@@ -29,6 +29,52 @@ describe('Pruebas de API Client Service', () => {
     }));
   })
 
+  it('Debería crear una nueva publicación', async () => {
+    
+    const newPost = {
+      id: -1,
+      title: 'Publicación de prueba',
+      body: 'Contenido nuevo',
+      author: 'Ana Torres',
+      date: '01/01/2000',
+      authorImage: 'atorres.jpg'
+    }
+    const createdPost = await service.createPost(newPost);
+
+    expect(createdPost).withContext('No se logró crear la publicación').toBeTruthy();
+
+    if (createdPost) {
+    expect(createdPost.title).toEqual(newPost.title);
+    expect(createdPost!.body).toEqual(newPost.body);
+    expect(createdPost!.author).toEqual(newPost.author);
+    expect(createdPost!.date).toEqual(newPost.date);
+    expect(createdPost!.authorImage).toEqual(newPost.authorImage);
+
+    alert(`Fue creada la publicación: "${createdPost.title}" exitosamente`)
+    }
+  })
+
+  it('Debería actualizar una publicación', async () => {
+    
+    const postToUpdate = {
+      id: 1,
+      title: `Publicación de prueba ${Math.floor(Math.random()*1000)}`,
+      body: 'Contenido nuevo',
+      author: 'Ana Torres',
+      date: '01/01/2000',
+      authorImage: 'atorres.jpg'
+    }
+    const updatedPost = await service.updatePost(postToUpdate);
+
+    expect(updatedPost).withContext('No se logró actualizar la publicación').toBeTruthy();
+
+    if (updatedPost) {
+    expect(updatedPost.title).toEqual(postToUpdate.title);
+
+    alert(`Fue actualiada la publicación: "${updatedPost.title}" exitosamente`)
+    }
+  })
+
   it('Debería eliminar una publicación', async () => {
     const deleteResponse = await service.deletePost(2);
     expect(deleteResponse).toBeDefined();

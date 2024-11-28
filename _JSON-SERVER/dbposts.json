@@ -1,16 +1,12 @@
 {
   "posts": [
     {
-      "userId": 1,
       "id": "1",
-      "title": "Instituto Duoc: Una Institución Educativa de Excelencia",
-      "body": "El Instituto Duoc se ha destacado por ofrecer una educación de calidad en diversas áreas del conocimiento. Sus programas académicos son altamente valorados por estudiantes y empleadores por igual."
-    },
-    {
-      "userId": 1,
-      "id": "2",
-      "title": "Carrera de Ingeniería en Informática en el Instituto Duoc",
-      "body": "Si te apasiona la tecnología, la carrera de Ingeniería en Informática en el Instituto Duoc es una excelente opción. Aprenderás las habilidades necesarias para destacarte en el campo de la informática."
+      "title": "Publicación de prueba 684",
+      "body": "Contenido nuevo",
+      "author": "Ana Torres",
+      "date": "01/01/2000",
+      "authorImage": "atorres.jpg"
     },
     {
       "userId": 2,
@@ -23,6 +19,14 @@
       "id": "4",
       "title": "Programas de Investigación en el Instituto Duoc",
       "body": "El Instituto Duoc promueve la investigación en diversas áreas. Sus programas de investigación han contribuido significativamente al avance del conocimiento en campos como la ciencia y la tecnología."
+    },
+    {
+      "id": "c72d",
+      "title": "Publicación de prueba",
+      "body": "Contenido nuevo",
+      "author": "Ana Torres",
+      "date": "01/01/2000",
+      "authorImage": "atorres.jpg"
     }
   ],
   "users": [
