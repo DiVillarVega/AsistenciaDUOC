@@ -1,1 +1,4 @@
-ion-content { --overflow: hidden;}
+// ion-content { --overflow: hidden;}
+ion-content {
+  padding-bottom: 56px; /* Altura del footer */
+}

@@ -1,6 +1,6 @@
 <app-header *ngIf="selectedComponent !== 'misdatos'" (headerClick)="headerClick($event)"></app-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
 
     <app-codigoqr *ngIf="selectedComponent === 'codigoqr'" (scanned)="webQrScanned($event)"
     (stopped)="webQrStopped()"></app-codigoqr>
